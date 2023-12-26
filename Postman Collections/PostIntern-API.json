@@ -59,7 +59,7 @@
 								"id": "ef08da13-0f92-4552-b188-36a3c4ddb105",
 								"exec": [
 									"pm.test(\"Response time is less than 1000 ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(120);\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Cities listed\", function () {\r",
@@ -91,7 +91,7 @@
 					"response": []
 				},
 				{
-					"name": "Create Subject Categories",
+					"name": "Create One City",
 					"event": [
 						{
 							"listen": "test",
