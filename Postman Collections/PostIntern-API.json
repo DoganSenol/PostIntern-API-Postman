@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Subject Categories",
+			"name": "Cities",
 			"item": [
 				{
 					"name": "Mersys Login",
@@ -51,7 +51,7 @@
 					"response": []
 				},
 				{
-					"name": "Subject Categories List",
+					"name": "Cities- Get List",
 					"event": [
 						{
 							"listen": "test",
