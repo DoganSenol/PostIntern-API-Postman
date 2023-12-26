@@ -58,7 +58,7 @@
 							"script": {
 								"id": "ef08da13-0f92-4552-b188-36a3c4ddb105",
 								"exec": [
-									"pm.test(\"Subject Categories listed\", function () {\r",
+									"pm.test(\"Cities are listed\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});"
 								],
@@ -75,14 +75,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{}",
+							"raw": "{\r\n    \"name\": \"\",\r\n    \"countryId\": \"5baac28d91cefe05fc6e3fe6\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "https://test.mersys.io/school-service/api/subject-categories/search"
+						"url": "https://test.mersys.io/school-service/api/cities/search"
 					},
 					"response": []
 				},
