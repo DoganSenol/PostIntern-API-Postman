@@ -102,7 +102,7 @@
 									"\r",
 									"    // Response body içerisinde beklenen özelliklerin olup olmadığını kontrol etme\r",
 									"    pm.expect(responseBody).to.have.property('id');\r",
-									"    pm.expect(responseBody).to.have.property('schOolId');\r",
+									"    pm.expect(responseBody).to.have.property('schoolId');\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Grading Sheme has been successfully created\", function () {\r",
