@@ -96,8 +96,15 @@
 							"script": {
 								"id": "dd684e1d-2f3b-478e-bc1e-419a19b997fb",
 								"exec": [
-									"pm.environment.get(\"{{schoolIDc}}\");\r",
 									"\r",
+									"pm.test(\"Response contains expected properties\", function () {\r",
+									"    // Response body JSON formatında olduğundan emin olun\r",
+									"    var responseBody = pm.response.json();\r",
+									"\r",
+									"    // Response body içerisinde beklenen özelliklerin olup olmadığını kontrol etme\r",
+									"    pm.expect(responseBody).to.have.property('ID');\r",
+									"    pm.expect(responseBody).to.have.property('schoolID');\r",
+									"});\r",
 									"\r",
 									"\r",
 									"pm.test(\"Grading Sheme has been successfully created\", function () {\r",
