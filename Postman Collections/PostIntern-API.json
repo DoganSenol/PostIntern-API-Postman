@@ -51,7 +51,7 @@
 					"response": []
 				},
 				{
-					"name": "Cities- Get List",
+					"name": "Grading Scheme- Get List",
 					"event": [
 						{
 							"listen": "test",
