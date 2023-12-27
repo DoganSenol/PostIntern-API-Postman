@@ -62,7 +62,7 @@
 									"\r",
 									"    var responseBody = pm.response.json();\r",
 									"\r",
-									"    pm.expect(responseBody).to.have.property('schoolId');\r",
+									"    pm.expect(responseBody[0]).to.have.property('schoolId');\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Grading Schemes listed\", function () {\r",
