@@ -96,13 +96,11 @@
 							"script": {
 								"id": "dd684e1d-2f3b-478e-bc1e-419a19b997fb",
 								"exec": [
-									"var gelenData=pm.response.json();\r",
-									"\r",
-									"pm.collectionVariables.set(\"SubjectID\", gelenData.id);\r",
+									"pm.environment.get(\"{{schoolIDc}}\");\r",
 									"\r",
 									"\r",
 									"\r",
-									"pm.test(\"Subject Categorie has been successfully created\", function () {\r",
+									"pm.test(\"Grading Sheme has been successfully created\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
 									"});"
 								],
@@ -119,7 +117,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Yüzdelik Puanlama\",\r\n  \"active\": true,\r\n  \"type\": \"POINT\",\r\n  \"enablePoint\": false,\r\n  \"gradeRanges\": [],\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+							"raw": "{\r\n  \"name\": \"{{$randomLoremText}}\",\r\n  \"active\": true,\r\n  \"type\": \"POINT\",\r\n  \"enablePoint\": false,\r\n  \"gradeRanges\": [],\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
