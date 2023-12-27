@@ -58,7 +58,6 @@
 							"script": {
 								"id": "ef08da13-0f92-4552-b188-36a3c4ddb105",
 								"exec": [
-									"\r",
 									"var responseData = pm.response.json();\r",
 									"\r",
 									"pm.test('Verify all properties for each item', function () {\r",
@@ -72,7 +71,6 @@
 									"        pm.expect(item).to.have.property('enablePoint').that.is.a('boolean');\r",
 									"    });\r",
 									"});\r",
-									"\r",
 									"pm.test(\"Grading Schemes listed\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});"
