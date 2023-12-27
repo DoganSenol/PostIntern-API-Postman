@@ -58,11 +58,9 @@
 							"script": {
 								"id": "ef08da13-0f92-4552-b188-36a3c4ddb105",
 								"exec": [
-									"pm.test(\"Response time is less than 1000 ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
-									"});\r",
 									"\r",
-									"pm.test(\"Cities listed\", function () {\r",
+									"\r",
+									"pm.test(\"Grading Schemes listed\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});"
 								],
@@ -75,18 +73,18 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"\",\r\n    \"countryId\": \"5baac28d91cefe05fc6e3fe6\"\r\n}",
+							"raw": "[]",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "https://test.mersys.io/school-service/api/cities/search"
+						"url": "https://test.mersys.io/school-service/api/grading-schemes/school/646cbb07acf2ee0d37c6d984/search"
 					},
 					"response": []
 				},
