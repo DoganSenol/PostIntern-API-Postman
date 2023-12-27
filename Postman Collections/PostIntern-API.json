@@ -58,7 +58,12 @@
 							"script": {
 								"id": "ef08da13-0f92-4552-b188-36a3c4ddb105",
 								"exec": [
+									"pm.test(\"Response contains expected properties\", function () {\r",
 									"\r",
+									"    var responseBody = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseBody).to.have.property('schoolId');\r",
+									"});\r",
 									"\r",
 									"pm.test(\"Grading Schemes listed\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
