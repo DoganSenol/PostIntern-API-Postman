@@ -174,7 +174,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"658d6963e089b65dc8d8711d\",\r\n    \"name\": \"Hammes and Sons35\",\r\n    \"active\": true,\r\n    \"schoolId\": \"{{schoolID}}\",\r\n    \"gradeRanges\": [],\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": false\r\n}",
+							"raw": "{\r\n    \"id\": \"658d790de089b65dc8d8712b\",\r\n    \"name\": \"O'Conner - Gerlach12\",\r\n    \"active\": true,\r\n    \"schoolId\": \"{{schoolID}}\",\r\n    \"gradeRanges\": [],\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -208,16 +208,7 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"schoolId\": \"{{schoolID}}\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "https://test.mersys.io/school-service/api/grading-schemes/658d6963e089b65dc8d8711d"
+						"url": "https://test.mersys.io/school-service/api/grading-schemes/658d790de089b65dc8d8712b"
 					},
 					"response": []
 				}
