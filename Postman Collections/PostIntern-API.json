@@ -174,7 +174,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"658d4e9c2f0f2225f0011f73\",\r\n    \"name\": \"McCullough, Upton and Nitzsche352\",\r\n    \"active\": true,\r\n    \"schoolId\": \"{{schoolID}}\",\r\n    \"gradeRanges\": [],\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": false\r\n}",
+							"raw": "{\r\n    \"id\": \"658d4fd32f0f2225f0011f74\",\r\n    \"name\": \"Kemmer - Mohr3504\",\r\n    \"active\": true,\r\n    \"schoolId\":\"{{schoolID}}\",\r\n    \"gradeRanges\": [],\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -208,7 +208,16 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "https://test.mersys.io/school-service/api/grading-schemes/658d4e9c2f0f2225f0011f73"
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"schoolId\": \"{{schoolID}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://test.mersys.io/school-service/api/grading-schemes/658d4fd32f0f2225f0011f74"
 					},
 					"response": []
 				},
