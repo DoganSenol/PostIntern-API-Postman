@@ -186,14 +186,14 @@
 					"response": []
 				},
 				{
-					"name": "Delete Subject Categories",
+					"name": "Delete Grading Scheme",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "5081cfce-e1be-4e4c-b495-3ae782a2e05b",
+								"id": "1b7a9798-305b-4b12-a632-07f305278868",
 								"exec": [
-									"pm.test(\"Grading Scheme is deleted\", function () {\r",
+									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});"
 								],
@@ -201,7 +201,7 @@
 							}
 						}
 					],
-					"id": "b33ff149-e303-40fa-8e3d-8b18f44173b6",
+					"id": "087eb90f-8ce3-452c-b7a2-f369fc8d15bc",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -209,33 +209,6 @@
 						"method": "DELETE",
 						"header": [],
 						"url": "https://test.mersys.io/school-service/api/grading-schemes/658d568c012d917f711fc2ed"
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Subject Categories Negative",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "a885df2a-b649-466d-935a-20597f531547",
-								"exec": [
-									"pm.test(\"Subject Categorie Delete Neagtive Test OK\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "8ae73c68-b981-4eab-ac82-d66e7e1c22d7",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": "https://test.mersys.io/school-service/api/subject-categories/{{SubjectID}}"
 					},
 					"response": []
 				}
