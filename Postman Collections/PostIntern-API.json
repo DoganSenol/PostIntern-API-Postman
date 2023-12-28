@@ -138,7 +138,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"658d4790de696027cac8d010\",\r\n    \"name\": \"McLaughlin Group\",\r\n    \"active\": true,\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\",\r\n    \"gradeRanges\": [],\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": false\r\n}",
+							"raw": "{\r\n  \"name\": \"{{$randomCompanyName}}\",\r\n  \"active\": true,\r\n  \"type\": \"POINT\",\r\n  \"enablePoint\": false,\r\n  \"gradeRanges\": [],\r\n  \"schoolId\": \"{{schoolID}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -157,7 +157,7 @@
 							"script": {
 								"id": "988a8fb4-5fa2-45c7-8357-6ca5cc691879",
 								"exec": [
-									"pm.test(\"Subject Categorie has been successfully updated\", function () {\r",
+									"pm.test(\"Grading Scheme has been successfully updated\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});"
 								],
@@ -174,7 +174,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": \"{{SubjectID}}\",\r\n  \"name\": \"{{$randomFullName}}\",\r\n  \"code\": \"{{$randomEmail}}\",\r\n  \"active\": true,\r\n  \"translateName\": [\r\n    null\r\n  ]\r\n}",
+							"raw": "{\r\n    \"id\": \"658d4790de696027cac8d010\",\r\n    \"name\": \"McLaughlin Group150\",\r\n    \"active\": true,\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\",\r\n    \"gradeRanges\": [],\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -208,7 +208,7 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "https://test.mersys.io/school-service/api/subject-categories/{{SubjectID}}"
+						"url": "https://test.mersys.io/school-service/api/grading-schemes/{{GradingSchemeID}}"
 					},
 					"response": []
 				},
@@ -247,7 +247,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "25132098-1b71-4b27-9072-615708a2f4af",
+				"id": "27e1389b-7cd4-4cb3-8116-78de4960f32e",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -257,7 +257,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "e7bb8bcf-9207-4db4-bf72-5a7cb418311e",
+				"id": "fa0106f8-2097-43c7-b587-b73a4cb22300",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -267,7 +267,7 @@
 	],
 	"variable": [
 		{
-			"key": "SubjectID",
+			"key": "GradingSchemeID",
 			"value": ""
 		},
 		{
