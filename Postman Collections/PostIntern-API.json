@@ -174,7 +174,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"658d568c012d917f711fc2ed\",\r\n    \"name\": \"Stamm, Greenholt and Streich36\",\r\n    \"active\": true,\r\n    \"schoolId\": \"{{schoolID}}\",\r\n    \"gradeRanges\": [],\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": false\r\n}",
+							"raw": "{\r\n    \"id\": \"658d568c012d917f711fc2ed\",\r\n    \"name\": \"Stamm, Greenholt and ben\",\r\n    \"active\": true,\r\n    \"schoolId\": \"{{schoolID}}\",\r\n    \"gradeRanges\": [],\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
