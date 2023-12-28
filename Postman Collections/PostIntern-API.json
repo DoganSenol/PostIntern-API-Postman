@@ -208,15 +208,6 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"schoolId\": \"{{schoolID}}\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": "https://test.mersys.io/school-service/api/grading-schemes/658d4fd32f0f2225f0011f74"
 					},
 					"response": []
