@@ -174,7 +174,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"658d4790de696027cac8d010\",\r\n    \"name\": \"McLaughlin Group150\",\r\n    \"active\": true,\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\",\r\n    \"gradeRanges\": [],\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": false\r\n}",
+							"raw": "{\r\n    \"id\": \"658d4b8bde696027cac8d011\",\r\n    \"name\": \"Kessler and Sons350\",\r\n    \"active\": true,\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\",\r\n    \"gradeRanges\": [],\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -193,7 +193,7 @@
 							"script": {
 								"id": "5081cfce-e1be-4e4c-b495-3ae782a2e05b",
 								"exec": [
-									"pm.test(\"Subject Categorie deleted\", function () {\r",
+									"pm.test(\"Grading Scheme is deleted\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});"
 								],
@@ -208,7 +208,7 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "https://test.mersys.io/school-service/api/grading-schemes/{{GradingSchemeID}}"
+						"url": "https://test.mersys.io/school-service/api/grading-schemes/658d475ede696027cac8d00a"
 					},
 					"response": []
 				},
@@ -247,7 +247,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "27e1389b-7cd4-4cb3-8116-78de4960f32e",
+				"id": "411aede3-8a74-4777-bd3e-7bcb6ff45754",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -257,7 +257,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "fa0106f8-2097-43c7-b587-b73a4cb22300",
+				"id": "8dc95861-b661-4411-87ed-3cb06fc64130",
 				"type": "text/javascript",
 				"exec": [
 					""
