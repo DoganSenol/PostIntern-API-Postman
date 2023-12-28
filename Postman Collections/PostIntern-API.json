@@ -208,7 +208,7 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "https://test.mersys.io/school-service/api/grading-schemes/658d475ede696027cac8d00a"
+						"url": "https://test.mersys.io/{{schoolID}}"
 					},
 					"response": []
 				},
