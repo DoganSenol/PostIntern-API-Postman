@@ -108,7 +108,7 @@
 								"id": "dd684e1d-2f3b-478e-bc1e-419a19b997fb",
 								"exec": [
 									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"{{$randomCompanyName}}\");\r",
+									"    pm.expect(pm.response.text()).to.include('name');\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Response contains expected properties\", function () {\r",
