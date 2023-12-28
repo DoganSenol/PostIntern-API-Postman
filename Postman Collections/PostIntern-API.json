@@ -174,7 +174,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"658d4fd32f0f2225f0011f74\",\r\n    \"name\": \"Kemmer - Mohr35042\",\r\n    \"active\": true,\r\n    \"schoolId\":\"{{schoolID}}\",\r\n    \"gradeRanges\": [],\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": false\r\n}",
+							"raw": "{\r\n    \"id\": \"658d4fd32f0f2225f0011f74\",\r\n    \"name\": \"Kemmer - Veli06\",\r\n    \"active\": true,\r\n    \"schoolId\":\"{{schoolID}}\",\r\n    \"gradeRanges\": [],\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
