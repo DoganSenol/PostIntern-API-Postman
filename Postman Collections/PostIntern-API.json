@@ -138,7 +138,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"{{$randomCompanyName}}\",\r\n  \"active\": true,\r\n  \"type\": \"POINT\",\r\n  \"enablePoint\": false,\r\n  \"gradeRanges\": [],\r\n  \"schoolId\": \"{{schoolID}}\"\r\n}",
+							"raw": "{\r\n    \"id\": \"658d4790de696027cac8d010\",\r\n    \"name\": \"McLaughlin Group\",\r\n    \"active\": true,\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\",\r\n    \"gradeRanges\": [],\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -150,7 +150,7 @@
 					"response": []
 				},
 				{
-					"name": "Edit Subject Categories",
+					"name": "Edit Grading Scheme",
 					"event": [
 						{
 							"listen": "test",
@@ -181,7 +181,7 @@
 								}
 							}
 						},
-						"url": "https://test.mersys.io/school-service/api/subject-categories"
+						"url": "https://test.mersys.io/school-service/api/grading-schemes"
 					},
 					"response": []
 				},
