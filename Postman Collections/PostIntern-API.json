@@ -9,6 +9,185 @@
 			"name": "Education",
 			"item": [
 				{
+					"name": "Setup",
+					"item": [
+						{
+							"name": "Education Standard",
+							"item": [
+								{
+									"name": "Add Education Standard",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "8aeab2bf-e647-4caa-9709-aa153b56f2a2",
+												"exec": [
+													"pm.test(\"Basarli\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"var incomingData = pm.response.json();\r",
+													"pm.collectionVariables.set(\"EducationID\",incomingData.id);\r",
+													"pm.collectionVariables.set(\"schoolID\",incomingData.schoolId)"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "39f16af6-e0bc-47b1-a647-6c918fc30e51",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": null,\r\n  \"name\": \"{{$randomBankAccountName}}\",\r\n  \"description\": null,\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseURL}}/school-service/api/education-standard"
+									},
+									"response": []
+								},
+								{
+									"name": "Get All Education Standard",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ddb817fc-7511-4df8-9923-54c1c724581d",
+												"exec": [
+													"pm.test(\"Listilendi\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "a1b202dd-4dfa-4292-82f1-03103f9b2e3b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseURL}}/school-service/api/education-standard/school/{{schoolID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "Edit Education Standard",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b6d4ab5b-dd87-47e8-96ae-61e5a147f47e",
+												"exec": [
+													"pm.test(\"Education Standard successfully updated\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "8f5b34bc-a971-413c-915f-57b9b405e085",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": \"{{EducationID}}\",\r\n  \"name\": \"{{$randomCity}}\",\r\n  \"description\": null,\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseURL}}/school-service/api/education-standard"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Education",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "adfbdd11-0ed8-476e-8b68-0b1c6b675a41",
+												"exec": [
+													"pm.test(\"Education Standards successfully deleted\", function () {\r",
+													"    pm.response.to.have.status(204);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "1549440f-67a1-4052-8c49-09953438c768",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "{{baseURL}}/school-service/api/education-standard/{{EducationID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Education Negative",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "a0ed576c-a65e-4a68-bf4d-5dfbd598250a",
+												"exec": [
+													"pm.test(\"No such thing\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "2fac3127-8177-43eb-b58c-21f3188ed03b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "{{baseURL}}/school-service/api/education-standard/{{EducationID}}"
+									},
+									"response": []
+								}
+							],
+							"id": "fd93e77a-469c-4362-8f84-ca8983328979"
+						}
+					],
+					"id": "df4f3779-418a-4940-92ab-cf33972f635e"
+				},
+				{
 					"name": "Mersys Login",
 					"event": [
 						{
@@ -1431,6 +1610,222 @@
 								}
 							],
 							"id": "86f87857-61a7-48e0-ab01-cc0c186c0ffb"
+						},
+						{
+							"name": "Custom Field Group",
+							"item": [
+								{
+									"name": "US104-Create Custom Field Group",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "c849b972-d976-4c53-b681-ed207dee06f8",
+												"exec": [
+													"pm.test(\"Status code is 201\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"var incomingData = pm.response.json();\r",
+													"pm.collectionVariables.set(\"CustomID\",incomingData.id);\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "67de8e2d-ae82-40a3-9db8-41ccac02e476",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": null,\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"orderNo\": 10,\r\n  \"columnSize\": 1,\r\n  \"translateName\": [],\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseURL}}/school-service/api/custom-field-groups"
+									},
+									"response": []
+								},
+								{
+									"name": "US104-Create Custom Field Group Nigativ",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "0e312eba-b677-44b2-a000-ccae20c780b5",
+												"exec": [
+													"pm.test(\"Bu Order de Group Mevcut\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "a7445083-54e0-4228-870f-da16a4bc3e46",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": null,\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"orderNo\": 10,\r\n  \"columnSize\": 1,\r\n  \"translateName\": [],\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseURL}}/school-service/api/custom-field-groups"
+									},
+									"response": []
+								},
+								{
+									"name": "US104-Custom Field Group Edit",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "75fbb58c-9c2f-4e52-bb4d-cc7716e6ba69",
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "b1404e64-9544-42ff-a407-25fed7aa01a2",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": \"{{CustomID}}\",\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"orderNo\": 10,\r\n  \"columnSize\": 1,\r\n  \"translateName\": [],\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseURL}}/school-service/api/custom-field-groups"
+									},
+									"response": []
+								},
+								{
+									"name": "US104-Custom Field Group Edit Negative",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "17558af0-425b-4807-bb18-987bf670ad43",
+												"exec": [
+													"pm.test(\"Bu Order de Group Mevcut\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "e8c583f3-373e-42fc-86ab-543f7ffbf8b9",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": \"{{CustomID}}\",\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"orderNo\": 1,\r\n  \"columnSize\": 1,\r\n  \"translateName\": [],\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseURL}}/school-service/api/custom-field-groups"
+									},
+									"response": []
+								},
+								{
+									"name": "US104-Delete Group",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ae0db878-6474-4ccc-9a17-27a465799286",
+												"exec": [
+													"pm.test(\"Basarli silindi\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "8a631c83-7215-40a7-aa7c-f2e8a59a561e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "{{baseURL}}/school-service/api/custom-field-groups/{{CustomID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "US104-Delete Group Negative",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "360851e9-c4b7-4e78-b6ba-b2e113df4b1e",
+												"exec": [
+													"pm.test(\"Silmek istedininz Group mevcut degil\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "d855f31a-b9b1-41c8-b42f-592b82359caf",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "{{baseURL}}/school-service/api/custom-field-groups/{{CustomID}}"
+									},
+									"response": []
+								}
+							],
+							"id": "6235f426-b492-420a-be5c-a25554e848c2"
 						}
 					],
 					"id": "ebf4ae2d-12ad-41a5-9a33-0f679ba99def"
