@@ -15,7 +15,44 @@
 							"name": "Education Standard",
 							"item": [
 								{
-									"name": "Add Education Standard",
+									"name": "US108-Get All Education Standard",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ddb817fc-7511-4df8-9923-54c1c724581d",
+												"exec": [
+													"pm.test(\"Listilendi\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "a1b202dd-4dfa-4292-82f1-03103f9b2e3b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseURL}}/school-service/api/education-standard/school/{{schoolID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "US108-Add Education Standard",
 									"event": [
 										{
 											"listen": "test",
@@ -55,44 +92,7 @@
 									"response": []
 								},
 								{
-									"name": "Get All Education Standard",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "ddb817fc-7511-4df8-9923-54c1c724581d",
-												"exec": [
-													"pm.test(\"Listilendi\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"id": "a1b202dd-4dfa-4292-82f1-03103f9b2e3b",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{baseURL}}/school-service/api/education-standard/school/{{schoolID}}"
-									},
-									"response": []
-								},
-								{
-									"name": "Edit Education Standard",
+									"name": "US108-Edit Education Standard",
 									"event": [
 										{
 											"listen": "test",
@@ -128,7 +128,7 @@
 									"response": []
 								},
 								{
-									"name": "Delete Education",
+									"name": "US108-Delete Education",
 									"event": [
 										{
 											"listen": "test",
@@ -155,7 +155,7 @@
 									"response": []
 								},
 								{
-									"name": "Delete Education Negative",
+									"name": "US108-Delete Education Negative",
 									"event": [
 										{
 											"listen": "test",
@@ -183,222 +183,186 @@
 								}
 							],
 							"id": "fd93e77a-469c-4362-8f84-ca8983328979"
+						},
+						{
+							"name": "Grading Schema",
+							"item": [
+								{
+									"name": "US109-Grading Scheme- Get List",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ef08da13-0f92-4552-b188-36a3c4ddb105",
+												"exec": [
+													"var responseData = pm.response.json();\r",
+													"\r",
+													"pm.test('Verify all properties for each item', function () {\r",
+													"    _.each(responseData, function(item) {\r",
+													"        pm.expect(item).to.have.property('id');\r",
+													"        pm.expect(item).to.have.property('name').that.is.a('string').and.not.empty;\r",
+													"        pm.expect(item).to.have.property('active').that.is.a('boolean');\r",
+													"        pm.expect(item).to.have.property('schoolId').that.is.a('string').and.not.empty;\r",
+													"        pm.expect(item).to.have.property('gradeRanges').that.is.an('array');\r",
+													"        pm.expect(item).to.have.property('type').that.is.a('string').and.not.empty;\r",
+													"        pm.expect(item).to.have.property('enablePoint').that.is.a('boolean');\r",
+													"    });\r",
+													"});\r",
+													"pm.test(\"Grading Schemes listed\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "cfb02f93-5a4d-47ec-8a93-8d1eda8af41d",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "[]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://test.mersys.io/school-service/api/grading-schemes/school/{{schoolID}}/search"
+									},
+									"response": []
+								},
+								{
+									"name": "US109-Create One Grading Scheme",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "dd684e1d-2f3b-478e-bc1e-419a19b997fb",
+												"exec": [
+													"pm.test(\"Body matches string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include('name');\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains expected properties\", function () {\r",
+													"    // Response body JSON formatında olduğundan emin olun\r",
+													"    var responseBody = pm.response.json();\r",
+													"\r",
+													"    // Response body içerisinde beklenen özelliklerin olup olmadığını kontrol etme\r",
+													"    pm.expect(responseBody).to.have.property('id');\r",
+													"    pm.expect(responseBody).to.have.property('schoolId');\r",
+													"\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Grading Sheme has been successfully created\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "7f79fb2c-3f5f-4282-9646-64b66ebed1cf",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"{{$randomCompanyName}}\",\r\n  \"active\": true,\r\n  \"type\": \"POINT\",\r\n  \"enablePoint\": false,\r\n  \"schoolId\": \"{{schoolID}}\",\r\n  \"gradeRanges\": []\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://test.mersys.io/school-service/api/grading-schemes"
+									},
+									"response": []
+								},
+								{
+									"name": "US109-Edit Grading Scheme",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "988a8fb4-5fa2-45c7-8357-6ca5cc691879",
+												"exec": [
+													"pm.test(\"Grading Scheme has been successfully updated\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "1e281268-d025-4c89-a452-4cd2fdb789fb",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"658e8eace089b65dc8d87176\",\r\n    \"name\": \"Stoltenberg - Goodwin54\",\r\n    \"active\": true,\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\",\r\n    \"gradeRanges\": [],\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": false\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://test.mersys.io/school-service/api/grading-schemes"
+									},
+									"response": []
+								},
+								{
+									"name": "US109-Delete Grading Scheme",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1b7a9798-305b-4b12-a632-07f305278868",
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "087eb90f-8ce3-452c-b7a2-f369fc8d15bc",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "https://test.mersys.io/school-service/api/grading-schemes/658e8eace089b65dc8d87176"
+									},
+									"response": []
+								}
+							],
+							"id": "75ffed4a-2c0c-4d79-8050-23c9cb04d045"
 						}
 					],
 					"id": "df4f3779-418a-4940-92ab-cf33972f635e"
-				},
-				{
-					"name": "Mersys Login",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "8c8b4e2c-75eb-43d4-8bf1-68832c60a825",
-								"exec": [
-									"pm.test(\"Login is SuccesFully\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "41e16389-2c60-4853-afcf-244df390945b",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "24887e71c509cd01daa609b922f1e1827bf19f88b47cb6a8d2e5a6a54b867b92"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"rememberMe\": true\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "https://test.mersys.io/auth/login"
-					},
-					"response": []
-				},
-				{
-					"name": "Grading Scheme- Get List",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "ef08da13-0f92-4552-b188-36a3c4ddb105",
-								"exec": [
-									"var responseData = pm.response.json();\r",
-									"\r",
-									"pm.test('Verify all properties for each item', function () {\r",
-									"    _.each(responseData, function(item) {\r",
-									"        pm.expect(item).to.have.property('id');\r",
-									"        pm.expect(item).to.have.property('name').that.is.a('string').and.not.empty;\r",
-									"        pm.expect(item).to.have.property('active').that.is.a('boolean');\r",
-									"        pm.expect(item).to.have.property('schoolId').that.is.a('string').and.not.empty;\r",
-									"        pm.expect(item).to.have.property('gradeRanges').that.is.an('array');\r",
-									"        pm.expect(item).to.have.property('type').that.is.a('string').and.not.empty;\r",
-									"        pm.expect(item).to.have.property('enablePoint').that.is.a('boolean');\r",
-									"    });\r",
-									"});\r",
-									"pm.test(\"Grading Schemes listed\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "cfb02f93-5a4d-47ec-8a93-8d1eda8af41d",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "https://test.mersys.io/school-service/api/grading-schemes/school/{{schoolID}}/search"
-					},
-					"response": []
-				},
-				{
-					"name": "Create One Grading Scheme",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "dd684e1d-2f3b-478e-bc1e-419a19b997fb",
-								"exec": [
-									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include('name');\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response contains expected properties\", function () {\r",
-									"    // Response body JSON formatında olduğundan emin olun\r",
-									"    var responseBody = pm.response.json();\r",
-									"\r",
-									"    // Response body içerisinde beklenen özelliklerin olup olmadığını kontrol etme\r",
-									"    pm.expect(responseBody).to.have.property('id');\r",
-									"    pm.expect(responseBody).to.have.property('schoolId');\r",
-									"\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Grading Sheme has been successfully created\", function () {\r",
-									"    pm.response.to.have.status(201);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "7f79fb2c-3f5f-4282-9646-64b66ebed1cf",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"{{$randomCompanyName}}\",\r\n  \"active\": true,\r\n  \"type\": \"POINT\",\r\n  \"enablePoint\": false,\r\n  \"schoolId\": \"{{schoolID}}\",\r\n  \"gradeRanges\": []\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "https://test.mersys.io/school-service/api/grading-schemes"
-					},
-					"response": []
-				},
-				{
-					"name": "Edit Grading Scheme",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "988a8fb4-5fa2-45c7-8357-6ca5cc691879",
-								"exec": [
-									"pm.test(\"Grading Scheme has been successfully updated\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "1e281268-d025-4c89-a452-4cd2fdb789fb",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"658e8eace089b65dc8d87176\",\r\n    \"name\": \"Stoltenberg - Goodwin54\",\r\n    \"active\": true,\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\",\r\n    \"gradeRanges\": [],\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": false\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "https://test.mersys.io/school-service/api/grading-schemes"
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Grading Scheme",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "1b7a9798-305b-4b12-a632-07f305278868",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "087eb90f-8ce3-452c-b7a2-f369fc8d15bc",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": "https://test.mersys.io/school-service/api/grading-schemes/658e8eace089b65dc8d87176"
-					},
-					"response": []
 				}
 			],
 			"id": "ff0d5ba5-7c32-4205-9a51-f99c47b31b42"
 		},
 		{
-			"name": "US105 Student",
+			"name": "Student",
 			"item": [
 				{
-					"name": "Add a New Student Group",
+					"name": "US105-Add a New Student Group",
 					"event": [
 						{
 							"listen": "test",
@@ -531,7 +495,7 @@
 					"response": []
 				},
 				{
-					"name": "Add a New Student Group Negative",
+					"name": "US105-Add a New Student Group Negative",
 					"event": [
 						{
 							"listen": "test",
