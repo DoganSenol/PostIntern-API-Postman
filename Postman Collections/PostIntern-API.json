@@ -1241,7 +1241,7 @@
 							"name": "Entrance Exams",
 							"item": [
 								{
-									"name": "Create Exam",
+									"name": "US103-Create Exam",
 									"event": [
 										{
 											"listen": "test",
@@ -1280,7 +1280,7 @@
 									"response": []
 								},
 								{
-									"name": "Edit Exam",
+									"name": "US103-Edit Exam",
 									"event": [
 										{
 											"listen": "test",
@@ -1318,7 +1318,7 @@
 									"response": []
 								},
 								{
-									"name": "Delet Exam",
+									"name": "US103-Delet Exam",
 									"event": [
 										{
 											"listen": "test",
@@ -1356,7 +1356,7 @@
 									"response": []
 								},
 								{
-									"name": "Blank Exam Name",
+									"name": "US103-Blank Exam Name",
 									"event": [
 										{
 											"listen": "test",
@@ -1392,7 +1392,7 @@
 									"response": []
 								},
 								{
-									"name": "Negatif Edit Exam",
+									"name": "US103-Negatif Edit Exam",
 									"event": [
 										{
 											"listen": "test",
