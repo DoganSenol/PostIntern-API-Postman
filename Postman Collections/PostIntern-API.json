@@ -216,16 +216,1027 @@
 			"id": "ff0d5ba5-7c32-4205-9a51-f99c47b31b42"
 		},
 		{
-			"name": "Student",
-			"item": [],
+			"name": "US105 Student",
+			"item": [
+				{
+					"name": "Add a New Student Group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cd8fcc60-e16f-4ec1-a5f1-c8e509456a3c",
+								"exec": [
+									"var responseBody = pm.response.json();\r",
+									"var studentGroupId = responseBody.id;\r",
+									"var studentGroupName = responseBody.name;\r",
+									"\r",
+									"pm.collectionVariables.set(\"studentGroupId\",studentGroupId);\r",
+									"pm.collectionVariables.set(\"studentGroupName\",studentGroupName);\r",
+									"\r",
+									"pm.test('Status code is 201', function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An id variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().id).is.exist.and.to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An schoolId variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().schoolId).is.exist.and.to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A name variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().name).is.exist.and.to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An description variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().description).is.exist.and.to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An count variable is exist and number\", function () {\r",
+									"    pm.expect(pm.response.json().count).is.exist.and.to.be.a(\"number\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An active variable is exist and boolean\", function () {\r",
+									"    pm.expect(pm.response.json().active).is.exist.and.to.be.a(\"boolean\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An publicGroup variable is exist and boolean\", function () {\r",
+									"    pm.expect(pm.response.json().publicGroup).is.exist.and.to.be.a(\"boolean\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An id showToStudent is exist and boolean\", function () {\r",
+									"    pm.expect(pm.response.json().showToStudent).is.exist.and.to.be.a(\"boolean\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"The name variable has less than 1000 character\", function () {\r",
+									"    pm.expect(pm.response.json().name.length).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"The description variable has less than 5000 character\", function () {\r",
+									"    pm.expect(pm.response.json().description.length).to.be.below(5000);\r",
+									"});\r",
+									"\r",
+									"/*\r",
+									"var responseData = pm.response.json();\r",
+									"pm.test('Verify all properties for each item', function () {\r",
+									"    _.each(responseData, function(item) {\r",
+									"        pm.expect(item).to.have.property('id').that.is.a('string').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('schoolId').that.is.a('string').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('name').that.is.a('string').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('description').that.is.a('string').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('count').that.is.a('number').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('active').that.is.a('boolean');\r",
+									"        pm.expect(item).to.have.property('publicGroup').that.is.a('boolean');\r",
+									"        pm.expect(item).to.have.property('showToStudent').that.is.a('boolean');\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An id variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('id');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"A schoolId variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('schoolId');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A name variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('name');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A description variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('description');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A count variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('count');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An active variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('active');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A publicGroup variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('publicGroup');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A showToStudent variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('showToStudent');\r",
+									"});\r",
+									"*/\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "b3b5932f-7c15-462e-913a-80c1597f6559",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomJobArea}} - {{$randomAbbreviation}}\",\r\n    \"description\": \"{{$randomJobDescriptor}}\",\r\n    \"publicGroup\": \"{{$randomBoolean}}\",\r\n    \"showToStudent\": \"{{$randomBoolean}}\",\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/school-service/api/student-group"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a New Student Group Negative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7fcd9db5-1e0d-4692-a7db-619c5345a67e",
+								"exec": [
+									"pm.test('Status code is 400', function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A type variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().type).is.exist.and.to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A status variable is exist and number\", function () {\r",
+									"    pm.expect(pm.response.json().status).is.exist.and.to.be.a(\"number\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A detail variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().detail).is.exist.and.to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A path variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().path).is.exist.and.to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An code variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('code');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An message variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().message).is.exist.and.to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An lang variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('lang');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An uri variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('uri');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"/*\r",
+									"var responseData = pm.response.json();\r",
+									"pm.test('Verify all properties for each item', function () {\r",
+									"    _.each(responseData, function(item) {\r",
+									"        pm.expect(item).to.have.property('id').that.is.a('string').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('schoolId').that.is.a('string').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('name').that.is.a('string').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('description').that.is.a('string').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('count').that.is.a('number').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('active').that.is.a('boolean');\r",
+									"        pm.expect(item).to.have.property('publicGroup').that.is.a('boolean');\r",
+									"        pm.expect(item).to.have.property('showToStudent').that.is.a('boolean');\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An id variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('id');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"A schoolId variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('schoolId');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A name variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('name');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A description variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('description');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A count variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('count');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An active variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('active');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A publicGroup variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('publicGroup');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A showToStudent variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('showToStudent');\r",
+									"});\r",
+									"*/\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "e331c732-279b-4bb5-9ebc-af1bb11b4363",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{studentGroupName}}\",\r\n    \"description\": \"{{$randomJobDescriptor}}\",\r\n    \"publicGroup\": \"{{$randomBoolean}}\",\r\n    \"showToStudent\": \"{{$randomBoolean}}\",\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/school-service/api/student-group"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Student Group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "053e1ca9-c7ca-4ea4-ae8c-4531f33e2a4e",
+								"exec": [
+									"pm.test('Status code is 200', function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An id variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().id).is.exist.and.to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An id variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().schoolId).is.exist.and.to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An id variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().name).is.exist.and.to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An id variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().description).is.exist.and.to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An id variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().count).is.exist.and.to.be.a(\"number\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An id variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().active).is.exist.and.to.be.a(\"boolean\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An id variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().publicGroup).is.exist.and.to.be.a(\"boolean\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An id variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().showToStudent).is.exist.and.to.be.a(\"boolean\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Name variable has less than 1000 character\", function () {\r",
+									"    pm.expect(pm.response.json().name.length).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Description variable has less than 5000 character\", function () {\r",
+									"    pm.expect(pm.response.json().description.length).to.be.below(5000);\r",
+									"});\r",
+									"\r",
+									"/*\r",
+									"var responseData = pm.response.json();\r",
+									"pm.test('Verify all properties for each item', function () {\r",
+									"    _.each(responseData, function(item) {\r",
+									"        pm.expect(item).to.have.property('id').that.is.a('string').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('schoolId').that.is.a('string').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('name').that.is.a('string').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('description').that.is.a('string').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('count').that.is.a('number').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('active').that.is.a('boolean');\r",
+									"        pm.expect(item).to.have.property('publicGroup').that.is.a('boolean');\r",
+									"        pm.expect(item).to.have.property('showToStudent').that.is.a('boolean');\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An id variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('id');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"A schoolId variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('schoolId');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A name variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('name');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A description variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('description');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A count variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('count');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An active variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('active');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A publicGroup variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('publicGroup');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A showToStudent variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('showToStudent');\r",
+									"});\r",
+									"*/\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "cb58e211-ead2-4623-afab-d5c98bc92876",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"{{studentGroupId}}\",\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\",\r\n  \"name\": \"{{$randomJobType}} - {{$randomAbbreviation}}\",\r\n  \"description\": \"{{$randomJobDescriptor}}\",\r\n  \"active\": \"{{$randomBoolean}}\",\r\n  \"publicGroup\": \"{{$randomBoolean}}\",\r\n  \"showToStudent\": \"{{$randomBoolean}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}/school-service/api/student-group/"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Student Group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bb2d4b50-0a4d-4d19-a2f6-c1fc373e4198",
+								"exec": [
+									"pm.test('Status code is 200', function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "ec149dac-c34f-4c27-9fb4-a86f998df0ab",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{URL}}/school-service/api/student-group/{{studentGroupId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Student Group Negative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dc728b2d-da8f-4589-9aaa-076ceb9543be",
+								"exec": [
+									"pm.test('Status code is 400', function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A type variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().type).is.exist.and.to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A status variable is exist and number\", function () {\r",
+									"    pm.expect(pm.response.json().status).is.exist.and.to.be.a(\"number\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A detail variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().detail).is.exist.and.to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A path variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().path).is.exist.and.to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An code variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('code');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An message variable is exist and string\", function () {\r",
+									"    pm.expect(pm.response.json().message).is.exist.and.to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An lang variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('lang');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An uri variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('uri');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"/*\r",
+									"var responseData = pm.response.json();\r",
+									"pm.test('Verify all properties for each item', function () {\r",
+									"    _.each(responseData, function(item) {\r",
+									"        pm.expect(item).to.have.property('id').that.is.a('string').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('schoolId').that.is.a('string').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('name').that.is.a('string').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('description').that.is.a('string').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('count').that.is.a('number').and.not.empty;\r",
+									"        pm.expect(item).to.have.property('active').that.is.a('boolean');\r",
+									"        pm.expect(item).to.have.property('publicGroup').that.is.a('boolean');\r",
+									"        pm.expect(item).to.have.property('showToStudent').that.is.a('boolean');\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An id variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('id');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"A schoolId variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('schoolId');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A name variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('name');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A description variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('description');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A count variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('count');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"An active variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('active');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A publicGroup variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('publicGroup');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"A showToStudent variable is returned\", () => {\r",
+									"    pm.expect(pm.response.json()).to.have.property('showToStudent');\r",
+									"});\r",
+									"*/\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "aae98161-5d92-4014-96ed-f236401ee5e2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{URL}}/school-service/api/student-group/{{studentGroupId}}"
+					},
+					"response": []
+				}
+			],
 			"id": "3828b27d-76e5-445a-b34f-5b4f59df4a83"
+		},
+		{
+			"name": "US001 Login",
+			"item": [
+				{
+					"name": "Negative Test Cases",
+					"item": [
+						{
+							"name": "ValidUsernameInvalidPassword",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b0b832ac-b9b7-4dcc-a819-3d945ebdf2f2",
+										"exec": [
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"  pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response has the required fields\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"\r",
+											"  pm.expect(responseData).to.be.an('object');\r",
+											"  pm.expect(responseData.type).to.exist;\r",
+											"  pm.expect(responseData.title).to.exist;\r",
+											"  pm.expect(responseData.status).to.exist;\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Type is a non-empty string\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"  \r",
+											"  pm.expect(responseData.type).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Title is a non-empty string\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"  \r",
+											"  pm.expect(responseData.title).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Status is a non-negative integer\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"\r",
+											"  pm.expect(responseData.status).to.be.a('number');\r",
+											"  pm.expect(responseData.status).to.be.at.least(0);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "815c1583-c7f8-4e27-b699-9a8cfbcb1fd2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"turkeyts\",\r\n    \"password\": \"technostudy456\",\r\n    \"rememberMe\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{URL}}/auth/login"
+							},
+							"response": []
+						},
+						{
+							"name": "InvalidUsernameValidPassword",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a6e49748-d6f6-4c9f-9c90-8827e3957c2e",
+										"exec": [
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"  pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Response has the required fields\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"\r",
+											"  pm.expect(responseData).to.be.an('object');\r",
+											"  pm.expect(responseData.type).to.exist;\r",
+											"  pm.expect(responseData.title).to.exist;\r",
+											"  pm.expect(responseData.status).to.exist;\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Type is a non-empty string\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"  \r",
+											"  pm.expect(responseData.type).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Title is a non-empty string\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"  \r",
+											"  pm.expect(responseData.title).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Status is a non-negative integer\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"\r",
+											"  pm.expect(responseData.status).to.be.a('number');\r",
+											"  pm.expect(responseData.status).to.be.at.least(0);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "0ad42fd4-1658-491c-a152-536691b66729",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"TurkeyTs\",\r\n    \"password\": \"Technostudy123\",\r\n    \"rememberMe\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{URL}}/auth/login"
+							},
+							"response": []
+						},
+						{
+							"name": "InvalidUsernameInvalidPassword",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "70a935e0-e614-4cc6-b8c1-bfa365a8aef4",
+										"exec": [
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"  pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Response has the required fields\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"\r",
+											"  pm.expect(responseData).to.be.an('object');\r",
+											"  pm.expect(responseData.type).to.exist;\r",
+											"  pm.expect(responseData.title).to.exist;\r",
+											"  pm.expect(responseData.status).to.exist;\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Type is a non-empty string\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"  \r",
+											"  pm.expect(responseData.type).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Title is a non-empty string\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"  \r",
+											"  pm.expect(responseData.title).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Status is a non-negative integer\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"\r",
+											"  pm.expect(responseData.status).to.be.a('number');\r",
+											"  pm.expect(responseData.status).to.be.at.least(0);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "8667ad91-b589-4ae7-865f-16a482f9d035",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"TurkeyTs\",\r\n    \"password\": \"technostudy456\",\r\n    \"rememberMe\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{URL}}/auth/login"
+							},
+							"response": []
+						},
+						{
+							"name": "EmptyUsernameIValidPassword",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f4c452ae-b920-48a0-84f3-736674004dc1",
+										"exec": [
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"  pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Response has the required fields\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"\r",
+											"  pm.expect(responseData).to.be.an('object');\r",
+											"  pm.expect(responseData.type).to.exist;\r",
+											"  pm.expect(responseData.title).to.exist;\r",
+											"  pm.expect(responseData.status).to.exist;\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Type is a non-empty string\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"  \r",
+											"  pm.expect(responseData.type).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Title is a non-empty string\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"  \r",
+											"  pm.expect(responseData.title).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Status is a non-negative integer\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"\r",
+											"  pm.expect(responseData.status).to.be.a('number');\r",
+											"  pm.expect(responseData.status).to.be.at.least(0);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "59455db7-825f-4c9f-9b3e-a11007c325ee",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"\",\r\n    \"password\": \"TechnoStudy123\",\r\n    \"rememberMe\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{URL}}/auth/login"
+							},
+							"response": []
+						},
+						{
+							"name": "ValidUsernameIEmptyPassword",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a8551019-722c-4eca-907b-5e0255c61259",
+										"exec": [
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"  pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Response has the required fields\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"\r",
+											"  pm.expect(responseData).to.be.an('object');\r",
+											"  pm.expect(responseData.type).to.exist;\r",
+											"  pm.expect(responseData.title).to.exist;\r",
+											"  pm.expect(responseData.status).to.exist;\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Type is a non-empty string\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"  \r",
+											"  pm.expect(responseData.type).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Title is a non-empty string\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"  \r",
+											"  pm.expect(responseData.title).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Status is a non-negative integer\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"\r",
+											"  pm.expect(responseData.status).to.be.a('number');\r",
+											"  pm.expect(responseData.status).to.be.at.least(0);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "39d06953-d0f2-4a1c-aba4-fe12397fc4a5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"turkeyts\",\r\n    \"password\": \"\",\r\n    \"rememberMe\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{URL}}/auth/login"
+							},
+							"response": []
+						},
+						{
+							"name": "EmptyUsernameIEmptyPassword",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1c3c2cf5-b5e5-425d-81ec-ff866a5fd607",
+										"exec": [
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"  pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Response has the required fields\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"\r",
+											"  pm.expect(responseData).to.be.an('object');\r",
+											"  pm.expect(responseData.type).to.exist;\r",
+											"  pm.expect(responseData.title).to.exist;\r",
+											"  pm.expect(responseData.status).to.exist;\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Type is a non-empty string\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"  \r",
+											"  pm.expect(responseData.type).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Title is a non-empty string\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"  \r",
+											"  pm.expect(responseData.title).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Status is a non-negative integer\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"\r",
+											"  pm.expect(responseData.status).to.be.a('number');\r",
+											"  pm.expect(responseData.status).to.be.at.least(0);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "e890d1e3-8e9a-425b-8cb8-bb4825892591",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"\",\r\n    \"password\": \"\",\r\n    \"rememberMe\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{URL}}/auth/login"
+							},
+							"response": []
+						}
+					],
+					"id": "b5f290f9-e9b8-4e53-99d3-100e0460405b"
+				},
+				{
+					"name": "Positive Test Cases",
+					"item": [
+						{
+							"name": "ValidUsernameValidPasword",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f040b7fc-2147-46b2-8a40-7f84eebec4fa",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"An access token is returned\", () => {\r",
+											"    pm.expect(pm.response.json()).to.have.property('access_token')\r",
+											"})\r",
+											"\r",
+											"\r",
+											"pm.test(\"Access token is a non-empty string\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"\r",
+											"  pm.expect(responseData.access_token).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Access token should not be empty\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Token type is a non-empty string\", function () {\r",
+											"  const responseData = pm.response.json();\r",
+											"  \r",
+											"  pm.expect(responseData).to.be.an('object');\r",
+											"  pm.expect(responseData.token_type).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Refresh token is a non-empty string\", function () {\r",
+											"    const responseData = pm.response.json();\r",
+											"\r",
+											"    pm.expect(responseData.refresh_token).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Refresh token should not be empty\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Expires in is a non-negative integer\", function () {\r",
+											"    const responseData = pm.response.json();\r",
+											"    \r",
+											"    pm.expect(responseData.expires_in).to.be.a('number').and.to.be.at.least(0);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "27024946-8db8-42cc-83ea-3edced79083a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"turkeyts\",\r\n    \"password\": \"TechnoStudy123\",\r\n    \"rememberMe\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{URL}}/auth/login"
+							},
+							"response": []
+						}
+					],
+					"id": "59469c9f-180a-4c59-b261-1a7e795bee5b"
+				}
+			],
+			"id": "53874b22-36b4-4814-88d9-9283b5c3ff63"
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "411aede3-8a74-4777-bd3e-7bcb6ff45754",
+				"id": "0cb7bb71-68af-4e37-ac7a-ecd516ec9384",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -235,7 +1246,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "8dc95861-b661-4411-87ed-3cb06fc64130",
+				"id": "46dd4afe-01b4-4744-9d14-84307c3ea71d",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -250,6 +1261,26 @@
 		},
 		{
 			"key": "schoolID",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "URL",
+			"value": "https://test.mersys.io",
+			"type": "string"
+		},
+		{
+			"key": "studentGroupId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "studentSchoolId",
+			"value": "646cbb07acf2ee0d37c6d984",
+			"type": "string"
+		},
+		{
+			"key": "studentGroupName",
 			"value": "",
 			"type": "string"
 		}
