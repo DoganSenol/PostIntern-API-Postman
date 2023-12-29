@@ -1230,13 +1230,208 @@
 				}
 			],
 			"id": "53874b22-36b4-4814-88d9-9283b5c3ff63"
+		},
+		{
+			"name": "US103",
+			"item": [
+				{
+					"name": "Create Exam",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e1ce4133-21e7-47c4-865f-5f5c3caf4aa7",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"var incomingData = pm.response.json();\r",
+									"pm.collectionVariables.set(\"ExamID\",incomingData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "bb154622-030e-4979-ad08-322fd93d1a62",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": null,\r\n  \"name\": \"{{$randomLastName}}\",\r\n  \"translateName\": [],\r\n  \"school\": \"646cbb07acf2ee0d37c6d984\",\r\n  \"gradeLevel\": {\r\n    \"id\": \"654898fae70d9e34a8331e51\"\r\n  },\r\n  \"academicPeriod\": \"6509eba5f640da7207ab120c\",\r\n  \"active\": true,\r\n  \"description\": \"\",\r\n  \"note\": \"\",\r\n  \"agreementText\": \"\",\r\n  \"sendSMS\": false,\r\n  \"sms\": \"\",\r\n  \"sendEmailEnabled\": false,\r\n  \"emailMessage\": {\r\n    \"subject\": \"\",\r\n    \"content\": \"\"\r\n  },\r\n  \"registrationStartDate\": null,\r\n  \"registrationEndDate\": null,\r\n  \"paid\": false,\r\n  \"sendEmailToRegistrar\": false,\r\n  \"registrarEmails\": [],\r\n  \"showDescFirst\": false,\r\n  \"showNoteFirst\": false,\r\n  \"noteEnabled\": false,\r\n  \"descEnabled\": false,\r\n  \"agreementEnabled\": false,\r\n  \"documents\": [],\r\n  \"bankAccount\": null,\r\n  \"price\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/school-service/api/exams"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Exam",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c80f0d1b-d772-41ec-acd3-0c019b584acf",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "e4fd6ebd-3dee-4cbe-8857-1170e2b92adb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"{{ExamID}}\",\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"translateName\": [],\r\n  \"school\": \"646cbb07acf2ee0d37c6d984\",\r\n  \"gradeLevel\": {\r\n    \"id\": \"654898fae70d9e34a8331e51\"\r\n  },\r\n  \"academicPeriod\": \"6509eba5f640da7207ab120c\",\r\n  \"active\": true,\r\n  \"description\": \"\",\r\n  \"note\": \"\",\r\n  \"agreementText\": \"\",\r\n  \"sendSMS\": false,\r\n  \"sms\": \"\",\r\n  \"sendEmailEnabled\": false,\r\n  \"emailMessage\": {\r\n    \"subject\": \"\",\r\n    \"content\": \"\"\r\n  },\r\n  \"registrationStartDate\": null,\r\n  \"registrationEndDate\": null,\r\n  \"paid\": false,\r\n  \"sendEmailToRegistrar\": false,\r\n  \"registrarEmails\": [],\r\n  \"showDescFirst\": false,\r\n  \"showNoteFirst\": false,\r\n  \"noteEnabled\": false,\r\n  \"descEnabled\": false,\r\n  \"agreementEnabled\": false,\r\n  \"documents\": [],\r\n  \"bankAccount\": null,\r\n  \"price\": 0,\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/school-service/api/exams"
+					},
+					"response": []
+				},
+				{
+					"name": "Delet Exam",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a5fab260-c36b-4b01-b515-5b850a6594b6",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "910d5709-fb98-4ad6-8286-e89667e14057",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/school-service/api/exams/{{ExamID}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Blank Exam Name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "049c4024-9ef9-477b-82c0-71aacad18a7b",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "f4e32d90-d03d-4045-92f8-25d4a574275a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": null,\r\n  \"name\": \"\",\r\n  \"translateName\": [],\r\n  \"school\": \"646cbb07acf2ee0d37c6d984\",\r\n  \"gradeLevel\": {\r\n    \"id\": \"654898fae70d9e34a8331e51\"\r\n  },\r\n  \"academicPeriod\": \"6509eba5f640da7207ab120c\",\r\n  \"active\": true,\r\n  \"description\": \"\",\r\n  \"note\": \"\",\r\n  \"agreementText\": \"\",\r\n  \"sendSMS\": false,\r\n  \"sms\": \"\",\r\n  \"sendEmailEnabled\": false,\r\n  \"emailMessage\": {\r\n    \"subject\": \"\",\r\n    \"content\": \"\"\r\n  },\r\n  \"registrationStartDate\": null,\r\n  \"registrationEndDate\": null,\r\n  \"paid\": false,\r\n  \"sendEmailToRegistrar\": false,\r\n  \"registrarEmails\": [],\r\n  \"showDescFirst\": false,\r\n  \"showNoteFirst\": false,\r\n  \"noteEnabled\": false,\r\n  \"descEnabled\": false,\r\n  \"agreementEnabled\": false,\r\n  \"documents\": [],\r\n  \"bankAccount\": null,\r\n  \"price\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/school-service/api/exams"
+					},
+					"response": []
+				},
+				{
+					"name": "Negatif Edit Exam",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5b2be2cd-ed45-4bee-aea8-83d956116f0e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "a4406801-3f68-479e-b12a-25fd3c559a8c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"{{ExamID}}\",\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"translateName\": [],\r\n  \"school\": \"646cbb07acf2ee0d37c6d984\",\r\n  \"gradeLevel\": {\r\n    \"id\": \"654898fae70d9e34a8331e51\"\r\n  },\r\n  \"academicPeriod\": \"6509eba5f640da7207ab120c\",\r\n  \"active\": true,\r\n  \"description\": \"\",\r\n  \"note\": \"\",\r\n  \"agreementText\": \"\",\r\n  \"sendSMS\": false,\r\n  \"sms\": \"\",\r\n  \"sendEmailEnabled\": false,\r\n  \"emailMessage\": {\r\n    \"subject\": \"\",\r\n    \"content\": \"\"\r\n  },\r\n  \"registrationStartDate\": null,\r\n  \"registrationEndDate\": null,\r\n  \"paid\": false,\r\n  \"sendEmailToRegistrar\": false,\r\n  \"registrarEmails\": [],\r\n  \"showDescFirst\": false,\r\n  \"showNoteFirst\": false,\r\n  \"noteEnabled\": false,\r\n  \"descEnabled\": false,\r\n  \"agreementEnabled\": false,\r\n  \"documents\": [],\r\n  \"bankAccount\": null,\r\n  \"price\": 0,\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/school-service/api/exams"
+					},
+					"response": []
+				}
+			],
+			"id": "b0d71bc6-4edc-4589-b3c3-77c93d2eefa2"
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "0cb7bb71-68af-4e37-ac7a-ecd516ec9384",
+				"id": "ac929e67-9fe2-407e-8f6c-4e7981cc4e4d",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1246,7 +1441,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "46dd4afe-01b4-4744-9d14-84307c3ea71d",
+				"id": "a6dcb32b-6a0a-4584-8d74-02efb6365077",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1283,6 +1478,15 @@
 			"key": "studentGroupName",
 			"value": "",
 			"type": "string"
+		},
+		{
+			"key": "baseURL",
+			"value": " https://test.mersys.io",
+			"type": "string"
+		},
+		{
+			"key": "ExamID",
+			"value": ""
 		}
 	]
 }
