@@ -1232,8 +1232,19 @@
 			"id": "53874b22-36b4-4814-88d9-9283b5c3ff63"
 		},
 		{
-			"name": "US103",
+			"name": "Entrance Exams",
 			"item": [
+				{
+					"name": "Setup",
+					"item": [
+						{
+							"name": "Entrance Exams",
+							"item": [],
+							"id": "86f87857-61a7-48e0-ab01-cc0c186c0ffb"
+						}
+					],
+					"id": "ebf4ae2d-12ad-41a5-9a33-0f679ba99def"
+				},
 				{
 					"name": "Create Exam",
 					"event": [
