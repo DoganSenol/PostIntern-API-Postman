@@ -2365,8 +2365,8 @@
 													"        pm.expect(item).to.have.property('translateName').that.is.a('array');\r",
 													"        pm.expect(item).to.have.property('active').that.is.a('boolean');\r",
 													"        pm.expect(item).to.have.property('schoolId').that.is.a('string').and.not.empty;\r",
-													"        pm.expect(item).to.have.property('minPoint').that.is.an('Integer').and.not.empty;\r",
-													"        pm.expect(item).to.have.property('maxPoint').that.is.an('Integer').and.not.empty;\r",
+													"        pm.expect(item).to.have.property('minPoint').that.is.a('integer').and.not.empty;\r",
+													"        pm.expect(item).to.have.property('maxPoint').that.is.a('integer').and.not.empty;\r",
 													"        pm.expect(item).to.have.property('academicBased').that.is.a('boolean');\r",
 													"    });\r",
 													"});"
@@ -2382,6 +2382,15 @@
 									"request": {
 										"method": "POST",
 										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": "https://test.mersys.io/school-service/api/incident-type/search"
 									},
 									"response": []
