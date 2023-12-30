@@ -2338,6 +2338,23 @@
 				}
 			],
 			"id": "ff0d5ba5-7c32-4205-9a51-f99c47b31b42"
+		},
+		{
+			"name": "Incidents",
+			"item": [
+				{
+					"name": "Setup",
+					"item": [
+						{
+							"name": "Incident Type",
+							"item": [],
+							"id": "9e75c08b-8f5f-4f1f-b725-bfe44918b227"
+						}
+					],
+					"id": "00cca640-dd6f-4896-a147-8a0073d7e400"
+				}
+			],
+			"id": "806c7ed8-47cb-4227-baf6-89541f9a0a29"
 		}
 	],
 	"event": [
