@@ -2400,14 +2400,24 @@
 									"response": []
 								},
 								{
-									"name": "New Request",
+									"name": "US110-Create a Incident Type",
 									"id": "7d91e872-9131-4b5e-9352-1052404122e8",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
-										"method": "GET",
-										"header": []
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": null,\r\n  \"name\": \"Yaralama {{$randomCountryCode}}\",\r\n  \"active\": true,\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\",\r\n  \"translateName\": [],\r\n  \"minPoint\": 20,\r\n  \"maxPoint\": 70,\r\n  \"academicBased\": false\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://test.mersys.io/school-service/api/incident-type"
 									},
 									"response": []
 								}
