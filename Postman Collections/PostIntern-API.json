@@ -2118,7 +2118,7 @@
 												}
 											}
 										},
-										"url": "https://test.mersys.io/school-service/api/grading-schemes/school/{{schoolID}}/search"
+										"url": "https://test.mersys.io/school-service/api/grading-schemes/school/646cbb07acf2ee0d37c6d984/search"
 									},
 									"response": []
 								},
@@ -2161,7 +2161,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"name\": \"{{$randomCompanyName}}\",\r\n  \"active\": true,\r\n  \"type\": \"POINT\",\r\n  \"enablePoint\": false,\r\n  \"schoolId\": \"{{schoolID}}\",\r\n  \"gradeRanges\": []\r\n}",
+											"raw": "{\r\n  \"name\": \"{{$randomCompanyName}}\",\r\n  \"active\": true,\r\n  \"type\": \"POINT\",\r\n  \"enablePoint\": false,\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\",\r\n  \"gradeRanges\": []\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2197,7 +2197,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"id\": \"{{schemaID}}\",\r\n    \"name\": \"hdhdhdhd656545\",\r\n    \"active\": true,\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": true,\r\n    \"gradeRanges\": [],\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}\r\n",
+											"raw": "{\r\n    \"id\": \"{{schemaID}}\",\r\n    \"name\": \"hdhdhdhd65654574\",\r\n    \"active\": true,\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": true,\r\n    \"gradeRanges\": [],\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2230,7 +2230,13 @@
 									},
 									"request": {
 										"method": "DELETE",
-										"header": [],
+										"header": [
+											{
+												"key": "school",
+												"value": "646cbb07acf2ee0d37c6d984",
+												"type": "text"
+											}
+										],
 										"url": "https://test.mersys.io/school-service/api/grading-schemes/{{schemaID}}"
 									},
 									"response": []
