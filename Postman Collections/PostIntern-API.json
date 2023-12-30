@@ -2479,6 +2479,40 @@
 										"url": "https://test.mersys.io/school-service/api/incident-type"
 									},
 									"response": []
+								},
+								{
+									"name": "US110-Edit Incident Type",
+									"id": "cdfee7fa-bbde-4c14-840e-2b959d8b1cba",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"{{incidentID}}\",\r\n    \"name\": \"{{$randomUserName}}\",\r\n    \"active\": true,\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\",\r\n    \"translateName\": [],\r\n    \"minPoint\": 20,\r\n    \"maxPoint\": 70,\r\n    \"academicBased\": false\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://test.mersys.io/school-service/api/incident-type"
+									},
+									"response": []
+								},
+								{
+									"name": "New Request",
+									"id": "c6114f78-e793-4ea8-b81a-e8e27ec25230",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
 								}
 							],
 							"id": "9e75c08b-8f5f-4f1f-b725-bfe44918b227"
