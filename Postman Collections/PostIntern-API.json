@@ -2349,7 +2349,7 @@
 							"name": "Incident Type",
 							"item": [
 								{
-									"name": "US110-Get Incident Type Lis",
+									"name": "US110-Get Incident Type List",
 									"event": [
 										{
 											"listen": "test",
@@ -2401,6 +2401,25 @@
 								},
 								{
 									"name": "US110-Create a Incident Type",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "96531cc5-3cd4-4161-8256-d647afbb17ff",
+												"exec": [
+													"var incomingData = pm.response.json();\r",
+													"pm.collectionVariables.set(\"incidentID\", incomingData.id);\r",
+													"var incomingData = pm.response.json();\r",
+													"pm.collectionVariables.set(\"incidentName\", incomingData.name);\r",
+													"\r",
+													"pm.test(\"Status code is 201\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "7d91e872-9131-4b5e-9352-1052404122e8",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -2411,6 +2430,46 @@
 										"body": {
 											"mode": "raw",
 											"raw": "{\r\n  \"id\": null,\r\n  \"name\": \"Yaralama {{$randomCountryCode}}\",\r\n  \"active\": true,\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\",\r\n  \"translateName\": [],\r\n  \"minPoint\": 20,\r\n  \"maxPoint\": 70,\r\n  \"academicBased\": false\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://test.mersys.io/school-service/api/incident-type"
+									},
+									"response": []
+								},
+								{
+									"name": "US110-Create a Incident Type Negative",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "96531cc5-3cd4-4161-8256-d647afbb17ff",
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Body matches string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"already exists\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "a3e16f41-c15d-4806-8c9e-0c75d85fe0ea",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": null,\r\n  \"name\": \"{{incidentName}}\",\r\n  \"active\": true,\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\",\r\n  \"translateName\": [],\r\n  \"minPoint\": 20,\r\n  \"maxPoint\": 70,\r\n  \"academicBased\": false\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2435,7 +2494,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "ef801baf-0cc1-4265-bb7c-f101aa975f46",
+				"id": "5d7d885c-caea-4aba-be0a-e66529ae6c81",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2445,7 +2504,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "fa034f73-0a06-4d4d-87d4-215c4d2567d3",
+				"id": "5891ac95-7b85-4ce7-80bb-20b56ba0ca9b",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2517,6 +2576,16 @@
 		{
 			"key": "countryID",
 			"value": ""
+		},
+		{
+			"key": "incidentID",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "incidentName",
+			"value": "",
+			"type": "string"
 		}
 	]
 }
