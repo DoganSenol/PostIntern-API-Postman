@@ -793,6 +793,10 @@
 												"exec": [
 													"pm.test(\"Nationalities has been listed\", function () {\r",
 													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 1000 milliseconds\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 													"});"
 												],
 												"type": "text/javascript"
@@ -820,7 +824,7 @@
 									"response": []
 								},
 								{
-									"name": "New Request",
+									"name": "US102-Create a Nationality",
 									"id": "90461e76-605e-4dab-a3cc-f7dfff7c94c6",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -828,6 +832,15 @@
 									"request": {
 										"method": "POST",
 										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"{{$randomCountry}} {{$randomCountryCode}}\",\r\n  \"translateName\": []\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": "https://test.mersys.io/school-service/api/nationality"
 									},
 									"response": []
