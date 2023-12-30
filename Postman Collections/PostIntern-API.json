@@ -779,6 +779,61 @@
 								}
 							],
 							"id": "497cbf45-4bd7-49a7-a149-88e9c8b2f9fc"
+						},
+						{
+							"name": "Nationalities",
+							"item": [
+								{
+									"name": "US102-Get List Nationalities",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "8567144a-b302-4b13-bc02-438133d5ae2b",
+												"exec": [
+													"pm.test(\"Nationalities has been listed\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "aa56884a-8982-4069-accd-827c8b9b1808",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://test.mersys.io/school-service/api/nationality/search"
+									},
+									"response": []
+								},
+								{
+									"name": "New Request",
+									"id": "90461e76-605e-4dab-a3cc-f7dfff7c94c6",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": "https://test.mersys.io/school-service/api/nationality"
+									},
+									"response": []
+								}
+							],
+							"id": "815f0ddb-879b-4f4c-90ad-4f5d667f3333"
 						}
 					],
 					"id": "32fd30b8-6596-4db1-b692-809ddb91caf2"
@@ -2498,7 +2553,7 @@
 												}
 											}
 										},
-										"url": "https://test.mersys.io/school-service/api/incident-type"
+										"url": "{{incidentURL}}"
 									},
 									"response": []
 								},
@@ -2531,7 +2586,7 @@
 												"type": "text"
 											}
 										],
-										"url": "https://test.mersys.io/school-service/api/incident-type/{{incidentID}}"
+										"url": "{{incidentURL}}/{{incidentID}}"
 									},
 									"response": []
 								},
@@ -2568,7 +2623,7 @@
 												"type": "text"
 											}
 										],
-										"url": "https://test.mersys.io/school-service/api/incident-type/{{incidentID}}"
+										"url": "{{incidentURL}}/{{incidentID}}"
 									},
 									"response": []
 								}
@@ -2683,6 +2738,14 @@
 			"key": "incidentURL",
 			"value": "https://test.mersys.io/school-service/api/incident-type",
 			"type": "string"
+		},
+		{
+			"key": "CustomID",
+			"value": ""
+		},
+		{
+			"key": "EducationID",
+			"value": ""
 		}
 	]
 }
