@@ -2202,7 +2202,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"id\": \"{{schemaID}}\",\r\n    \"name\": \"Edit {{schemeName}}\",\r\n    \"active\": true,\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": true,\r\n    \"gradeRanges\": [],\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}\r\n",
+											"raw": "{\r\n    \"id\": \"{{schemeID}}\",\r\n    \"name\": \"Edit {{schemeName}}\",\r\n    \"active\": true,\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\",\r\n    \"gradeRanges\": [],\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": true\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2242,7 +2242,44 @@
 												"type": "text"
 											}
 										],
-										"url": "https://test.mersys.io/school-service/api/grading-schemes/{{schemaID}}"
+										"url": "https://test.mersys.io/school-service/api/grading-schemes/{{schemeID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "US109-Delete Grading Scheme Negative",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1b7a9798-305b-4b12-a632-07f305278868",
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Body matches string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"not found\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "c70c7c46-de24-46bd-94da-755bd5e96dcc",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "X-School",
+												"value": "646cbb07acf2ee0d37c6d984",
+												"type": "text"
+											}
+										],
+										"url": "https://test.mersys.io/school-service/api/grading-schemes/{{schemeID}}"
 									},
 									"response": []
 								}
