@@ -957,6 +957,64 @@
 										"url": "https://test.mersys.io/school-service/api/nationality"
 									},
 									"response": []
+								},
+								{
+									"name": "Delete the Nationality",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "0b94781b-3cc4-4b00-921b-28a167bf836d",
+												"exec": [
+													"pm.test(\"Nationality has been deleted statusCode 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "3c16366e-4d7e-45e5-b249-277e44ea0e43",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "https://test.mersys.io/school-service/api/nationality/{{nationalityID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete the Nationality Negative",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "0b94781b-3cc4-4b00-921b-28a167bf836d",
+												"exec": [
+													"pm.test(\"Nationality is not found statusCode 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Body matches string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"not  found\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "6ad0efdb-371d-4823-ae6c-ab5df93db1e2",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "https://test.mersys.io/school-service/api/nationality/{{nationalityID}}"
+									},
+									"response": []
 								}
 							],
 							"id": "815f0ddb-879b-4f4c-90ad-4f5d667f3333"
