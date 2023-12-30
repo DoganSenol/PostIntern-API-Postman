@@ -2197,7 +2197,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"id\": \"6590361acacea97f2a0cb0bc\",\r\n    \"name\": \"Feil, Reilly and Boyle35\",\r\n    \"active\": true,\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\",\r\n    \"gradeRanges\": [],\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": false\r\n}",
+											"raw": "{\r\n    \"id\": \"65903deecacea97f2a0cb0bf\",\r\n    \"name\": \"hdhdhdhd65\",\r\n    \"active\": true,\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": true,\r\n    \"gradeRanges\": [],\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2231,7 +2231,7 @@
 									"request": {
 										"method": "DELETE",
 										"header": [],
-										"url": "https://test.mersys.io/school-service/api/grading-schemes/6590361acacea97f2a0cb0bc"
+										"url": "https://test.mersys.io/school-service/api/grading-schemes/65903deecacea97f2a0cb0bf"
 									},
 									"response": []
 								}
@@ -2249,7 +2249,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "ac929e67-9fe2-407e-8f6c-4e7981cc4e4d",
+				"id": "dac0fceb-4d6f-4772-ba2f-ecdc4487e813",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2259,7 +2259,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a6dcb32b-6a0a-4584-8d74-02efb6365077",
+				"id": "c4ff3d88-98e7-405f-8688-70b12408a0d6",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2313,6 +2313,11 @@
 		{
 			"key": "statesID",
 			"value": ""
+		},
+		{
+			"key": "schemaID",
+			"value": "",
+			"type": "string"
 		}
 	]
 }
