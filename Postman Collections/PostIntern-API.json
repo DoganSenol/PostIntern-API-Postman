@@ -2347,7 +2347,21 @@
 					"item": [
 						{
 							"name": "Incident Type",
-							"item": [],
+							"item": [
+								{
+									"name": "US110-Get Incident Type Lis",
+									"id": "f29b356f-8f57-48e8-b8e2-3b12c598a9ca",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": "https://test.mersys.io/school-service/api/incident-type/search"
+									},
+									"response": []
+								}
+							],
 							"id": "9e75c08b-8f5f-4f1f-b725-bfe44918b227"
 						}
 					],
