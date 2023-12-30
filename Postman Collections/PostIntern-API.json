@@ -825,6 +825,33 @@
 								},
 								{
 									"name": "US102-Create a Nationality",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "53b53b7a-e2ba-486d-aa9e-16bd9d1fcd46",
+												"exec": [
+													"pm.test(\"Nationality has been created\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200 milliseconds\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													"\r",
+													"\r",
+													"var incomingData = pm.response.json();\r",
+													"pm.collectionVariables.set(\"nationalityID\", incomingData.id);\r",
+													"var incomingData = pm.response.json();\r",
+													"pm.collectionVariables.set(\"nationalityName\", incomingData.name);\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "90461e76-605e-4dab-a3cc-f7dfff7c94c6",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -835,6 +862,55 @@
 										"body": {
 											"mode": "raw",
 											"raw": "{\r\n  \"name\": \"{{$randomCountry}} {{$randomCountryCode}}\",\r\n  \"translateName\": []\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://test.mersys.io/school-service/api/nationality"
+									},
+									"response": []
+								},
+								{
+									"name": "US102-Create a Nationality Negative",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "53b53b7a-e2ba-486d-aa9e-16bd9d1fcd46",
+												"exec": [
+													"pm.test(\"Nationality has been created\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200 milliseconds\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													"\r",
+													"\r",
+													"var incomingData = pm.response.json();\r",
+													"pm.collectionVariables.set(\"nationalityID\", incomingData.id);\r",
+													"var incomingData = pm.response.json();\r",
+													"pm.collectionVariables.set(\"nationalityName\", incomingData.name);\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "98ac0fba-d5e7-4950-89d5-404a91b9ceb4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"{{nationalityName}}\",\r\n  \"translateName\": []\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2654,7 +2730,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "3014c110-3088-4a38-8aab-33e261a37010",
+				"id": "0d0297c1-b03a-46c0-83f6-03ff3280dc05",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2664,7 +2740,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "96e7eb2c-8e54-4e87-94f1-f8c5b9ef186f",
+				"id": "31192d62-b9fa-4794-9b42-a2f3cd089e4c",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2759,6 +2835,16 @@
 		{
 			"key": "EducationID",
 			"value": ""
+		},
+		{
+			"key": "nationalityName",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "nationalityID",
+			"value": "",
+			"type": "string"
 		}
 	]
 }
