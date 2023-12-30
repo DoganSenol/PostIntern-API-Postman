@@ -732,6 +732,53 @@
 								}
 							],
 							"id": "cc4acbac-a56e-413a-98e8-fef3d13d62e1"
+						},
+						{
+							"name": "Country",
+							"item": [
+								{
+									"name": "US002-Create Country",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b0cbca4e-9b98-4c92-9482-296fea6cc364",
+												"exec": [
+													"var gelenData=pm.response.json();\r",
+													"pm.collectionVariables.set(\"countryName\",gelenData.name);\r",
+													"pm.collectionVariables.set(\"countryID\",gelenData.id);\r",
+													"\r",
+													"pm.test(\"Status code is 201\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "8a936ac8-3309-4598-8fe6-e216b9256136",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": null,\r\n  \"name\": \"{{$randomCountry}} - {{$randomInt}}\",\r\n  \"code\": \"{{$randomCountryCode}}\",\r\n  \"translateName\": [],\r\n  \"hasState\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://test.mersys.io/school-service/api/countries"
+									},
+									"response": []
+								}
+							],
+							"id": "497cbf45-4bd7-49a7-a149-88e9c8b2f9fc"
 						}
 					],
 					"id": "32fd30b8-6596-4db1-b692-809ddb91caf2"
@@ -2371,6 +2418,14 @@
 			"key": "schemeID",
 			"value": "",
 			"type": "string"
+		},
+		{
+			"key": "countryName",
+			"value": ""
+		},
+		{
+			"key": "countryID",
+			"value": ""
 		}
 	]
 }
