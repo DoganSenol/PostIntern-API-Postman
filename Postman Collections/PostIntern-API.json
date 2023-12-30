@@ -2365,10 +2365,14 @@
 													"        pm.expect(item).to.have.property('translateName').that.is.an('array');\r",
 													"        pm.expect(item).to.have.property('active').that.is.a('boolean');\r",
 													"        pm.expect(item).to.have.property('schoolId').that.is.a('string').and.not.empty;\r",
-													"        pm.expect(item).to.have.property('minPoint').that.is.a('number').and.not.NaN;\r",
-													"        pm.expect(item).to.have.property('maxPoint').that.is.a('number').and.not.NaN;\r",
+													"        pm.expect(item).to.have.property('minPoint').that.is.a('number').and.not.to.be.NaN;\r",
+													"        pm.expect(item).to.have.property('maxPoint').that.is.a('number').and.not.to.be.NaN;\r",
 													"        pm.expect(item).to.have.property('academicBased').that.is.a('boolean');\r",
 													"    });\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
 													"});"
 												],
 												"type": "text/javascript"
