@@ -2395,7 +2395,7 @@
 												}
 											}
 										},
-										"url": "https://test.mersys.io/school-service/api/incident-type/search"
+										"url": "{{incidentURL}}/search"
 									},
 									"response": []
 								},
@@ -2436,7 +2436,7 @@
 												}
 											}
 										},
-										"url": "https://test.mersys.io/school-service/api/incident-type"
+										"url": "{{incidentURL}}"
 									},
 									"response": []
 								},
@@ -2476,7 +2476,7 @@
 												}
 											}
 										},
-										"url": "https://test.mersys.io/school-service/api/incident-type"
+										"url": "{{incidentURL}}"
 									},
 									"response": []
 								},
@@ -2586,7 +2586,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "5d7d885c-caea-4aba-be0a-e66529ae6c81",
+				"id": "3014c110-3088-4a38-8aab-33e261a37010",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2596,7 +2596,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "5891ac95-7b85-4ce7-80bb-20b56ba0ca9b",
+				"id": "96e7eb2c-8e54-4e87-94f1-f8c5b9ef186f",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2677,6 +2677,11 @@
 		{
 			"key": "incidentName",
 			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "incidentURL",
+			"value": "https://test.mersys.io/school-service/api/incident-type",
 			"type": "string"
 		}
 	]
