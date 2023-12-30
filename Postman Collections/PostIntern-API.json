@@ -2231,7 +2231,7 @@
 									"request": {
 										"method": "DELETE",
 										"header": [],
-										"url": "https://test.mersys.io/school-service/api/grading-schemes/659032c4cacea97f2a0cb0b4"
+										"url": "https://test.mersys.io/school-service/api/grading-schemes/6590361acacea97f2a0cb0bc"
 									},
 									"response": []
 								}
