@@ -880,20 +880,17 @@
 											"script": {
 												"id": "53b53b7a-e2ba-486d-aa9e-16bd9d1fcd46",
 												"exec": [
-													"pm.test(\"Nationality has been created\", function () {\r",
-													"    pm.response.to.have.status(201);\r",
+													"pm.test(\"Nationality already exists statusCode 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
 													"pm.test(\"Response time is less than 200 milliseconds\", function () {\r",
 													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
 													"});\r",
 													"\r",
-													"\r",
-													"var incomingData = pm.response.json();\r",
-													"pm.collectionVariables.set(\"nationalityID\", incomingData.id);\r",
-													"var incomingData = pm.response.json();\r",
-													"pm.collectionVariables.set(\"nationalityName\", incomingData.name);\r",
-													"\r",
+													"pm.test(\"Body contains string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"already exists\");\r",
+													"});\r",
 													"\r",
 													""
 												],
@@ -917,6 +914,19 @@
 												}
 											}
 										},
+										"url": "https://test.mersys.io/school-service/api/nationality"
+									},
+									"response": []
+								},
+								{
+									"name": "US102-Edit the Nationality",
+									"id": "d3012cc7-c6ce-4c61-acd5-e3ad1b204149",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
 										"url": "https://test.mersys.io/school-service/api/nationality"
 									},
 									"response": []
