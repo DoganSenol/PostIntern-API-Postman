@@ -2118,7 +2118,7 @@
 												}
 											}
 										},
-										"url": "https://test.mersys.io/school-service/api/grading-schemes/school/646cbb07acf2ee0d37c6d984/search"
+										"url": "https://test.mersys.io/school-service/api/grading-schemes/school/{{schoolID}}/search"
 									},
 									"response": []
 								},
@@ -2130,6 +2130,11 @@
 											"script": {
 												"id": "dd684e1d-2f3b-478e-bc1e-419a19b997fb",
 												"exec": [
+													"var incomingData = pm.response.json();\r",
+													"pm.collectionVariables.set(\"schemeID\", incomingData.id);\r",
+													"var incomingData = pm.response.json();\r",
+													"pm.collectionVariables.set(\"schemeName\", incomingData.name);\r",
+													"\r",
 													"pm.test(\"Body matches string\", function () {\r",
 													"    pm.expect(pm.response.text()).to.include('name');\r",
 													"});\r",
@@ -2197,7 +2202,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"id\": \"{{schemaID}}\",\r\n    \"name\": \"Edit {{$randomAdjective}}\",\r\n    \"active\": true,\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": true,\r\n    \"gradeRanges\": [],\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}\r\n",
+											"raw": "{\r\n    \"id\": \"{{schemaID}}\",\r\n    \"name\": \"Edit {{schemeName}}\",\r\n    \"active\": true,\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": true,\r\n    \"gradeRanges\": [],\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2255,7 +2260,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "4bb33a63-83c9-49b8-9d99-e0bf42f6aba5",
+				"id": "ef801baf-0cc1-4265-bb7c-f101aa975f46",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2265,7 +2270,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "87d45603-cddc-4cf5-9ab6-1cbf90804c39",
+				"id": "fa034f73-0a06-4d4d-87d4-215c4d2567d3",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2321,7 +2326,12 @@
 			"value": ""
 		},
 		{
-			"key": "schemaID",
+			"key": "schemeName",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "schemeID",
 			"value": "",
 			"type": "string"
 		}
