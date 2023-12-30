@@ -2398,6 +2398,18 @@
 										"url": "https://test.mersys.io/school-service/api/incident-type/search"
 									},
 									"response": []
+								},
+								{
+									"name": "New Request",
+									"id": "7d91e872-9131-4b5e-9352-1052404122e8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
 								}
 							],
 							"id": "9e75c08b-8f5f-4f1f-b725-bfe44918b227"
