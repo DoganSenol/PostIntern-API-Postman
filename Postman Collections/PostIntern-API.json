@@ -2197,7 +2197,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"id\": \"65903deecacea97f2a0cb0bf\",\r\n    \"name\": \"hdhdhdhd65\",\r\n    \"active\": true,\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": true,\r\n    \"gradeRanges\": [],\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}\r\n",
+											"raw": "{\r\n    \"id\": \"{{schemaID}}\",\r\n    \"name\": \"hdhdhdhd656545\",\r\n    \"active\": true,\r\n    \"type\": \"POINT\",\r\n    \"enablePoint\": true,\r\n    \"gradeRanges\": [],\r\n    \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2231,7 +2231,7 @@
 									"request": {
 										"method": "DELETE",
 										"header": [],
-										"url": "https://test.mersys.io/school-service/api/grading-schemes/65903deecacea97f2a0cb0bf"
+										"url": "https://test.mersys.io/school-service/api/grading-schemes/{{schemaID}}"
 									},
 									"response": []
 								}
@@ -2249,7 +2249,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "dac0fceb-4d6f-4772-ba2f-ecdc4487e813",
+				"id": "4bb33a63-83c9-49b8-9d99-e0bf42f6aba5",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2259,7 +2259,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "c4ff3d88-98e7-405f-8688-70b12408a0d6",
+				"id": "87d45603-cddc-4cf5-9ab6-1cbf90804c39",
 				"type": "text/javascript",
 				"exec": [
 					""
