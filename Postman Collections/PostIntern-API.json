@@ -2350,6 +2350,31 @@
 							"item": [
 								{
 									"name": "US110-Get Incident Type Lis",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "942fe521-bb67-46b3-b2d3-fa45f1780ac4",
+												"exec": [
+													"var responseData = pm.response.json();\r",
+													"\r",
+													"pm.test('Verify all properties for each item', function () {\r",
+													"    _.each(responseData, function(item) {\r",
+													"        pm.expect(item).to.have.property('id');\r",
+													"        pm.expect(item).to.have.property('name').that.is.a('string').and.not.empty;\r",
+													"        pm.expect(item).to.have.property('translateName').that.is.a('array');\r",
+													"        pm.expect(item).to.have.property('active').that.is.a('boolean');\r",
+													"        pm.expect(item).to.have.property('schoolId').that.is.a('string').and.not.empty;\r",
+													"        pm.expect(item).to.have.property('minPoint').that.is.an('Integer').and.not.empty;\r",
+													"        pm.expect(item).to.have.property('maxPoint').that.is.an('Integer').and.not.empty;\r",
+													"        pm.expect(item).to.have.property('academicBased').that.is.a('boolean');\r",
+													"    });\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "f29b356f-8f57-48e8-b8e2-3b12c598a9ca",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
