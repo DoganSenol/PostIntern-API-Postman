@@ -920,6 +920,24 @@
 								},
 								{
 									"name": "US102-Edit the Nationality",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "82905a30-257e-4cd9-bd1d-f72bdba0f03b",
+												"exec": [
+													"pm.test(\"Nationality has been updated statusCode 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200 milliseconds\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "d3012cc7-c6ce-4c61-acd5-e3ad1b204149",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -927,6 +945,15 @@
 									"request": {
 										"method": "PUT",
 										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"{{nationalityID}}\",\r\n    \"name\": \"{{$randomCountryCode}} {{$randomCountry}}\",\r\n    \"translateName\": []\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": "https://test.mersys.io/school-service/api/nationality"
 									},
 									"response": []
