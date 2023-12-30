@@ -2161,7 +2161,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"name\": \"{{$randomCompanyName}}\",\r\n  \"active\": true,\r\n  \"type\": \"POINT\",\r\n  \"enablePoint\": false,\r\n  \"schoolId\": \"{{schoolID}}\",\r\n  \"gradeRanges\": []\r\n}",
+											"raw": "{\r\n  \"name\": \"{{$randomAlphaNumeric}} {{$randomColor}} {{$randomWord}}\",\r\n  \"active\": true,\r\n  \"type\": \"POINT\",\r\n  \"enablePoint\": true,\r\n  \"schoolId\": \"{{schoolID}}\",\r\n  \"gradeRanges\": []\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
