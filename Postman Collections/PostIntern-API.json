@@ -1026,6 +1026,429 @@
 			"id": "48d5a2cb-975c-4157-a150-6e461e2e71dd"
 		},
 		{
+			"name": "Entrance Exams",
+			"item": [
+				{
+					"name": "Setup",
+					"item": [
+						{
+							"name": "Entrance Exams",
+							"item": [
+								{
+									"name": "US103-Create Exam",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "5b318737-b924-41e1-82ff-242abb385338",
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"var incomingData = pm.response.json();\r",
+													"pm.collectionVariables.set(\"ExamID\",incomingData.id);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "3734dd3f-da25-45f1-b6c5-08dc2a90eb80",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": null,\r\n  \"name\": \"{{$randomLastName}}\",\r\n  \"translateName\": [],\r\n  \"school\": \"646cbb07acf2ee0d37c6d984\",\r\n  \"gradeLevel\": {\r\n    \"id\": \"654898fae70d9e34a8331e51\"\r\n  },\r\n  \"academicPeriod\": \"6509eba5f640da7207ab120c\",\r\n  \"active\": true,\r\n  \"description\": \"\",\r\n  \"note\": \"\",\r\n  \"agreementText\": \"\",\r\n  \"sendSMS\": false,\r\n  \"sms\": \"\",\r\n  \"sendEmailEnabled\": false,\r\n  \"emailMessage\": {\r\n    \"subject\": \"\",\r\n    \"content\": \"\"\r\n  },\r\n  \"registrationStartDate\": null,\r\n  \"registrationEndDate\": null,\r\n  \"paid\": false,\r\n  \"sendEmailToRegistrar\": false,\r\n  \"registrarEmails\": [],\r\n  \"showDescFirst\": false,\r\n  \"showNoteFirst\": false,\r\n  \"noteEnabled\": false,\r\n  \"descEnabled\": false,\r\n  \"agreementEnabled\": false,\r\n  \"documents\": [],\r\n  \"bankAccount\": null,\r\n  \"price\": 0\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseURL}}/school-service/api/exams"
+									},
+									"response": []
+								},
+								{
+									"name": "US103-Edit Exam",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3455b3f5-bcd8-44a4-8e74-96e038a08c8a",
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "a2ca507c-e968-47cf-9cf6-3b281a0a1ac2",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": \"{{ExamID}}\",\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"translateName\": [],\r\n  \"school\": \"646cbb07acf2ee0d37c6d984\",\r\n  \"gradeLevel\": {\r\n    \"id\": \"654898fae70d9e34a8331e51\"\r\n  },\r\n  \"academicPeriod\": \"6509eba5f640da7207ab120c\",\r\n  \"active\": true,\r\n  \"description\": \"\",\r\n  \"note\": \"\",\r\n  \"agreementText\": \"\",\r\n  \"sendSMS\": false,\r\n  \"sms\": \"\",\r\n  \"sendEmailEnabled\": false,\r\n  \"emailMessage\": {\r\n    \"subject\": \"\",\r\n    \"content\": \"\"\r\n  },\r\n  \"registrationStartDate\": null,\r\n  \"registrationEndDate\": null,\r\n  \"paid\": false,\r\n  \"sendEmailToRegistrar\": false,\r\n  \"registrarEmails\": [],\r\n  \"showDescFirst\": false,\r\n  \"showNoteFirst\": false,\r\n  \"noteEnabled\": false,\r\n  \"descEnabled\": false,\r\n  \"agreementEnabled\": false,\r\n  \"documents\": [],\r\n  \"bankAccount\": null,\r\n  \"price\": 0,\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseURL}}/school-service/api/exams"
+									},
+									"response": []
+								},
+								{
+									"name": "US103-Delet Exam",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ea7681c0-4cea-48d0-8aca-8a58bdc604cc",
+												"exec": [
+													"pm.test(\"Status code is 204\", function () {\r",
+													"    pm.response.to.have.status(204);\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "68962651-6991-4d80-82c0-0b131a83e32a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseURL}}/school-service/api/exams/{{ExamID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "US103-Blank Exam Name",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "386d440c-16b4-443f-ac07-84257d58f496",
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "01d977b6-31cd-4b51-964d-f7b4920c3dd1",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": null,\r\n  \"name\": \"\",\r\n  \"translateName\": [],\r\n  \"school\": \"646cbb07acf2ee0d37c6d984\",\r\n  \"gradeLevel\": {\r\n    \"id\": \"654898fae70d9e34a8331e51\"\r\n  },\r\n  \"academicPeriod\": \"6509eba5f640da7207ab120c\",\r\n  \"active\": true,\r\n  \"description\": \"\",\r\n  \"note\": \"\",\r\n  \"agreementText\": \"\",\r\n  \"sendSMS\": false,\r\n  \"sms\": \"\",\r\n  \"sendEmailEnabled\": false,\r\n  \"emailMessage\": {\r\n    \"subject\": \"\",\r\n    \"content\": \"\"\r\n  },\r\n  \"registrationStartDate\": null,\r\n  \"registrationEndDate\": null,\r\n  \"paid\": false,\r\n  \"sendEmailToRegistrar\": false,\r\n  \"registrarEmails\": [],\r\n  \"showDescFirst\": false,\r\n  \"showNoteFirst\": false,\r\n  \"noteEnabled\": false,\r\n  \"descEnabled\": false,\r\n  \"agreementEnabled\": false,\r\n  \"documents\": [],\r\n  \"bankAccount\": null,\r\n  \"price\": 0\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseURL}}/school-service/api/exams"
+									},
+									"response": []
+								},
+								{
+									"name": "US103-Negatif Edit Exam",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "e09fe2b6-173e-45c5-bef2-21607c12ee06",
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "a032d60e-2203-46bc-9603-a08b3c8a163c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": \"{{ExamID}}\",\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"translateName\": [],\r\n  \"school\": \"646cbb07acf2ee0d37c6d984\",\r\n  \"gradeLevel\": {\r\n    \"id\": \"654898fae70d9e34a8331e51\"\r\n  },\r\n  \"academicPeriod\": \"6509eba5f640da7207ab120c\",\r\n  \"active\": true,\r\n  \"description\": \"\",\r\n  \"note\": \"\",\r\n  \"agreementText\": \"\",\r\n  \"sendSMS\": false,\r\n  \"sms\": \"\",\r\n  \"sendEmailEnabled\": false,\r\n  \"emailMessage\": {\r\n    \"subject\": \"\",\r\n    \"content\": \"\"\r\n  },\r\n  \"registrationStartDate\": null,\r\n  \"registrationEndDate\": null,\r\n  \"paid\": false,\r\n  \"sendEmailToRegistrar\": false,\r\n  \"registrarEmails\": [],\r\n  \"showDescFirst\": false,\r\n  \"showNoteFirst\": false,\r\n  \"noteEnabled\": false,\r\n  \"descEnabled\": false,\r\n  \"agreementEnabled\": false,\r\n  \"documents\": [],\r\n  \"bankAccount\": null,\r\n  \"price\": 0,\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseURL}}/school-service/api/exams"
+									},
+									"response": []
+								}
+							],
+							"id": "86f87857-61a7-48e0-ab01-cc0c186c0ffb"
+						},
+						{
+							"name": "Custom Field Group",
+							"item": [
+								{
+									"name": "US104-Create Custom Field Group",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "c849b972-d976-4c53-b681-ed207dee06f8",
+												"exec": [
+													"pm.test(\"Status code is 201\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"var incomingData = pm.response.json();\r",
+													"pm.collectionVariables.set(\"CustomID\",incomingData.id);\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "67de8e2d-ae82-40a3-9db8-41ccac02e476",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": null,\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"orderNo\": 10,\r\n  \"columnSize\": 1,\r\n  \"translateName\": [],\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseURL}}/school-service/api/custom-field-groups"
+									},
+									"response": []
+								},
+								{
+									"name": "US104-Create Custom Field Group Nigativ",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "0e312eba-b677-44b2-a000-ccae20c780b5",
+												"exec": [
+													"pm.test(\"Bu Order de Group Mevcut\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "a7445083-54e0-4228-870f-da16a4bc3e46",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": null,\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"orderNo\": 10,\r\n  \"columnSize\": 1,\r\n  \"translateName\": [],\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseURL}}/school-service/api/custom-field-groups"
+									},
+									"response": []
+								},
+								{
+									"name": "US104-Custom Field Group Edit",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "75fbb58c-9c2f-4e52-bb4d-cc7716e6ba69",
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "b1404e64-9544-42ff-a407-25fed7aa01a2",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": \"{{CustomID}}\",\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"orderNo\": 10,\r\n  \"columnSize\": 1,\r\n  \"translateName\": [],\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseURL}}/school-service/api/custom-field-groups"
+									},
+									"response": []
+								},
+								{
+									"name": "US104-Custom Field Group Edit Negative",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "17558af0-425b-4807-bb18-987bf670ad43",
+												"exec": [
+													"pm.test(\"Bu Order de Group Mevcut\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "e8c583f3-373e-42fc-86ab-543f7ffbf8b9",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": \"{{CustomID}}\",\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"orderNo\": 1,\r\n  \"columnSize\": 1,\r\n  \"translateName\": [],\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseURL}}/school-service/api/custom-field-groups"
+									},
+									"response": []
+								},
+								{
+									"name": "US104-Delete Group",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ae0db878-6474-4ccc-9a17-27a465799286",
+												"exec": [
+													"pm.test(\"Basarli silindi\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "8a631c83-7215-40a7-aa7c-f2e8a59a561e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "{{baseURL}}/school-service/api/custom-field-groups/{{CustomID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "US104-Delete Group Negative",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "360851e9-c4b7-4e78-b6ba-b2e113df4b1e",
+												"exec": [
+													"pm.test(\"Silmek istedininz Group mevcut degil\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "d855f31a-b9b1-41c8-b42f-592b82359caf",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "{{baseURL}}/school-service/api/custom-field-groups/{{CustomID}}"
+									},
+									"response": []
+								}
+							],
+							"id": "6235f426-b492-420a-be5c-a25554e848c2"
+						}
+					],
+					"id": "ebf4ae2d-12ad-41a5-9a33-0f679ba99def"
+				}
+			],
+			"id": "b0d71bc6-4edc-4589-b3c3-77c93d2eefa2"
+		},
+		{
 			"name": "Student",
 			"item": [
 				{
@@ -1753,429 +2176,6 @@
 				}
 			],
 			"id": "3828b27d-76e5-445a-b34f-5b4f59df4a83"
-		},
-		{
-			"name": "Entrance Exams",
-			"item": [
-				{
-					"name": "Setup",
-					"item": [
-						{
-							"name": "Entrance Exams",
-							"item": [
-								{
-									"name": "US103-Create Exam",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "5b318737-b924-41e1-82ff-242abb385338",
-												"exec": [
-													"pm.test(\"Status code is 200\", function () {\r",
-													"    pm.response.to.have.status(201);\r",
-													"});\r",
-													"\r",
-													"var incomingData = pm.response.json();\r",
-													"pm.collectionVariables.set(\"ExamID\",incomingData.id);"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"id": "3734dd3f-da25-45f1-b6c5-08dc2a90eb80",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n  \"id\": null,\r\n  \"name\": \"{{$randomLastName}}\",\r\n  \"translateName\": [],\r\n  \"school\": \"646cbb07acf2ee0d37c6d984\",\r\n  \"gradeLevel\": {\r\n    \"id\": \"654898fae70d9e34a8331e51\"\r\n  },\r\n  \"academicPeriod\": \"6509eba5f640da7207ab120c\",\r\n  \"active\": true,\r\n  \"description\": \"\",\r\n  \"note\": \"\",\r\n  \"agreementText\": \"\",\r\n  \"sendSMS\": false,\r\n  \"sms\": \"\",\r\n  \"sendEmailEnabled\": false,\r\n  \"emailMessage\": {\r\n    \"subject\": \"\",\r\n    \"content\": \"\"\r\n  },\r\n  \"registrationStartDate\": null,\r\n  \"registrationEndDate\": null,\r\n  \"paid\": false,\r\n  \"sendEmailToRegistrar\": false,\r\n  \"registrarEmails\": [],\r\n  \"showDescFirst\": false,\r\n  \"showNoteFirst\": false,\r\n  \"noteEnabled\": false,\r\n  \"descEnabled\": false,\r\n  \"agreementEnabled\": false,\r\n  \"documents\": [],\r\n  \"bankAccount\": null,\r\n  \"price\": 0\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{baseURL}}/school-service/api/exams"
-									},
-									"response": []
-								},
-								{
-									"name": "US103-Edit Exam",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "3455b3f5-bcd8-44a4-8e74-96e038a08c8a",
-												"exec": [
-													"pm.test(\"Status code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"id": "a2ca507c-e968-47cf-9cf6-3b281a0a1ac2",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "PUT",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n  \"id\": \"{{ExamID}}\",\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"translateName\": [],\r\n  \"school\": \"646cbb07acf2ee0d37c6d984\",\r\n  \"gradeLevel\": {\r\n    \"id\": \"654898fae70d9e34a8331e51\"\r\n  },\r\n  \"academicPeriod\": \"6509eba5f640da7207ab120c\",\r\n  \"active\": true,\r\n  \"description\": \"\",\r\n  \"note\": \"\",\r\n  \"agreementText\": \"\",\r\n  \"sendSMS\": false,\r\n  \"sms\": \"\",\r\n  \"sendEmailEnabled\": false,\r\n  \"emailMessage\": {\r\n    \"subject\": \"\",\r\n    \"content\": \"\"\r\n  },\r\n  \"registrationStartDate\": null,\r\n  \"registrationEndDate\": null,\r\n  \"paid\": false,\r\n  \"sendEmailToRegistrar\": false,\r\n  \"registrarEmails\": [],\r\n  \"showDescFirst\": false,\r\n  \"showNoteFirst\": false,\r\n  \"noteEnabled\": false,\r\n  \"descEnabled\": false,\r\n  \"agreementEnabled\": false,\r\n  \"documents\": [],\r\n  \"bankAccount\": null,\r\n  \"price\": 0,\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{baseURL}}/school-service/api/exams"
-									},
-									"response": []
-								},
-								{
-									"name": "US103-Delet Exam",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "ea7681c0-4cea-48d0-8aca-8a58bdc604cc",
-												"exec": [
-													"pm.test(\"Status code is 204\", function () {\r",
-													"    pm.response.to.have.status(204);\r",
-													"});\r",
-													"\r",
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"id": "68962651-6991-4d80-82c0-0b131a83e32a",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{baseURL}}/school-service/api/exams/{{ExamID}}"
-									},
-									"response": []
-								},
-								{
-									"name": "US103-Blank Exam Name",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "386d440c-16b4-443f-ac07-84257d58f496",
-												"exec": [
-													"pm.test(\"Status code is 400\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"id": "01d977b6-31cd-4b51-964d-f7b4920c3dd1",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n  \"id\": null,\r\n  \"name\": \"\",\r\n  \"translateName\": [],\r\n  \"school\": \"646cbb07acf2ee0d37c6d984\",\r\n  \"gradeLevel\": {\r\n    \"id\": \"654898fae70d9e34a8331e51\"\r\n  },\r\n  \"academicPeriod\": \"6509eba5f640da7207ab120c\",\r\n  \"active\": true,\r\n  \"description\": \"\",\r\n  \"note\": \"\",\r\n  \"agreementText\": \"\",\r\n  \"sendSMS\": false,\r\n  \"sms\": \"\",\r\n  \"sendEmailEnabled\": false,\r\n  \"emailMessage\": {\r\n    \"subject\": \"\",\r\n    \"content\": \"\"\r\n  },\r\n  \"registrationStartDate\": null,\r\n  \"registrationEndDate\": null,\r\n  \"paid\": false,\r\n  \"sendEmailToRegistrar\": false,\r\n  \"registrarEmails\": [],\r\n  \"showDescFirst\": false,\r\n  \"showNoteFirst\": false,\r\n  \"noteEnabled\": false,\r\n  \"descEnabled\": false,\r\n  \"agreementEnabled\": false,\r\n  \"documents\": [],\r\n  \"bankAccount\": null,\r\n  \"price\": 0\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{baseURL}}/school-service/api/exams"
-									},
-									"response": []
-								},
-								{
-									"name": "US103-Negatif Edit Exam",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "e09fe2b6-173e-45c5-bef2-21607c12ee06",
-												"exec": [
-													"pm.test(\"Status code is 200\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"id": "a032d60e-2203-46bc-9603-a08b3c8a163c",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "PUT",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n  \"id\": \"{{ExamID}}\",\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"translateName\": [],\r\n  \"school\": \"646cbb07acf2ee0d37c6d984\",\r\n  \"gradeLevel\": {\r\n    \"id\": \"654898fae70d9e34a8331e51\"\r\n  },\r\n  \"academicPeriod\": \"6509eba5f640da7207ab120c\",\r\n  \"active\": true,\r\n  \"description\": \"\",\r\n  \"note\": \"\",\r\n  \"agreementText\": \"\",\r\n  \"sendSMS\": false,\r\n  \"sms\": \"\",\r\n  \"sendEmailEnabled\": false,\r\n  \"emailMessage\": {\r\n    \"subject\": \"\",\r\n    \"content\": \"\"\r\n  },\r\n  \"registrationStartDate\": null,\r\n  \"registrationEndDate\": null,\r\n  \"paid\": false,\r\n  \"sendEmailToRegistrar\": false,\r\n  \"registrarEmails\": [],\r\n  \"showDescFirst\": false,\r\n  \"showNoteFirst\": false,\r\n  \"noteEnabled\": false,\r\n  \"descEnabled\": false,\r\n  \"agreementEnabled\": false,\r\n  \"documents\": [],\r\n  \"bankAccount\": null,\r\n  \"price\": 0,\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{baseURL}}/school-service/api/exams"
-									},
-									"response": []
-								}
-							],
-							"id": "86f87857-61a7-48e0-ab01-cc0c186c0ffb"
-						},
-						{
-							"name": "Custom Field Group",
-							"item": [
-								{
-									"name": "US104-Create Custom Field Group",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "c849b972-d976-4c53-b681-ed207dee06f8",
-												"exec": [
-													"pm.test(\"Status code is 201\", function () {\r",
-													"    pm.response.to.have.status(201);\r",
-													"});\r",
-													"\r",
-													"var incomingData = pm.response.json();\r",
-													"pm.collectionVariables.set(\"CustomID\",incomingData.id);\r",
-													"\r",
-													"pm.test(\"Response time is less than 200ms\", function () {\r",
-													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"id": "67de8e2d-ae82-40a3-9db8-41ccac02e476",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n  \"id\": null,\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"orderNo\": 10,\r\n  \"columnSize\": 1,\r\n  \"translateName\": [],\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{baseURL}}/school-service/api/custom-field-groups"
-									},
-									"response": []
-								},
-								{
-									"name": "US104-Create Custom Field Group Nigativ",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "0e312eba-b677-44b2-a000-ccae20c780b5",
-												"exec": [
-													"pm.test(\"Bu Order de Group Mevcut\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"id": "a7445083-54e0-4228-870f-da16a4bc3e46",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n  \"id\": null,\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"orderNo\": 10,\r\n  \"columnSize\": 1,\r\n  \"translateName\": [],\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{baseURL}}/school-service/api/custom-field-groups"
-									},
-									"response": []
-								},
-								{
-									"name": "US104-Custom Field Group Edit",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "75fbb58c-9c2f-4e52-bb4d-cc7716e6ba69",
-												"exec": [
-													"pm.test(\"Status code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"id": "b1404e64-9544-42ff-a407-25fed7aa01a2",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "PUT",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n  \"id\": \"{{CustomID}}\",\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"orderNo\": 10,\r\n  \"columnSize\": 1,\r\n  \"translateName\": [],\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{baseURL}}/school-service/api/custom-field-groups"
-									},
-									"response": []
-								},
-								{
-									"name": "US104-Custom Field Group Edit Negative",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "17558af0-425b-4807-bb18-987bf670ad43",
-												"exec": [
-													"pm.test(\"Bu Order de Group Mevcut\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"id": "e8c583f3-373e-42fc-86ab-543f7ffbf8b9",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "PUT",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n  \"id\": \"{{CustomID}}\",\r\n  \"name\": \"{{$randomFirstName}}\",\r\n  \"orderNo\": 1,\r\n  \"columnSize\": 1,\r\n  \"translateName\": [],\r\n  \"schoolId\": \"646cbb07acf2ee0d37c6d984\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{baseURL}}/school-service/api/custom-field-groups"
-									},
-									"response": []
-								},
-								{
-									"name": "US104-Delete Group",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "ae0db878-6474-4ccc-9a17-27a465799286",
-												"exec": [
-													"pm.test(\"Basarli silindi\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"pm.test(\"Response time is less than 200ms\", function () {\r",
-													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"id": "8a631c83-7215-40a7-aa7c-f2e8a59a561e",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": "{{baseURL}}/school-service/api/custom-field-groups/{{CustomID}}"
-									},
-									"response": []
-								},
-								{
-									"name": "US104-Delete Group Negative",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "360851e9-c4b7-4e78-b6ba-b2e113df4b1e",
-												"exec": [
-													"pm.test(\"Silmek istedininz Group mevcut degil\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"id": "d855f31a-b9b1-41c8-b42f-592b82359caf",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": "{{baseURL}}/school-service/api/custom-field-groups/{{CustomID}}"
-									},
-									"response": []
-								}
-							],
-							"id": "6235f426-b492-420a-be5c-a25554e848c2"
-						}
-					],
-					"id": "ebf4ae2d-12ad-41a5-9a33-0f679ba99def"
-				}
-			],
-			"id": "b0d71bc6-4edc-4589-b3c3-77c93d2eefa2"
 		},
 		{
 			"name": "Education",
