@@ -583,7 +583,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"id\": null,\n  \"name\": \"Istanbul\",\n  \"shortName\": \"IST\",\n  \"country\": {\n    \"id\": \"63a41a0dcb75ee5c2199a8bc\"\n  },\n  \"translateName\": []\n}",
+											"raw": "{\n  \"id\": null,\n  \"name\": \"Istanbuler\",\n  \"shortName\": \"IST\",\n  \"country\": {\n    \"id\": \"63a41a0dcb75ee5c2199a8bc\"\n  },\n  \"translateName\": []\n}",
 											"options": {
 												"raw": {
 													"language": "json"
